@@ -35,6 +35,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 public class AssetController {
 
+    // rename to full name assetDao for clarity
     private final AssetDao aDao;
     private final RecordDao rDao;
     private final UserDao uDao;

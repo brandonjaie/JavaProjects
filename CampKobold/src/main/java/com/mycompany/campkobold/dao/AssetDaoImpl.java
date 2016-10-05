@@ -54,6 +54,8 @@ public class AssetDaoImpl implements AssetDao {
     private static final String SQL_SELECT_ASSET_BY_ASSET_ID
             = "select * from assets where asset_id = ?";
 
+    // mixture of two different functionalities. Ideally make separate insert with ID returned
+    // and get to retrieve AssetRecord
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public Asset addAsset(Asset asset, UserUserProfile user) {
