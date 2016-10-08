@@ -83,13 +83,13 @@ public class UserController {
         Map<SearchTerm, String> criteriaMap = new HashMap<>();
 
         String currentTerm = searchMap.get("userId");
-        if (!currentTerm.isEmpty()) {
+        if (currentTerm != null && !currentTerm.isEmpty()) {
             criteriaMap.put(SearchTerm.USER_ID, currentTerm);
         }
 
         currentTerm = searchMap.get("lastName");
 
-        if (!currentTerm.isEmpty()) {
+        if (currentTerm != null && !currentTerm.isEmpty()) {
 
             criteriaMap.put(SearchTerm.LAST_NAME, currentTerm.toLowerCase());
 
@@ -98,6 +98,26 @@ public class UserController {
         return uDao.searchUserUserProfiles(criteriaMap);
     }
     
+        @RequestMapping(value = "search/members", method = RequestMethod.POST)
+    @ResponseBody
+    public List<UserUserProfile> searchMembers(@RequestBody Map<String, String> searchMap) {
+        Map<SearchTerm, String> criteriaMap = new HashMap<>();
+
+        String currentTerm = searchMap.get("userId");
+        if (currentTerm != null && !currentTerm.isEmpty()) {
+            criteriaMap.put(SearchTerm.USER_ID, currentTerm);
+        }
+
+        currentTerm = searchMap.get("lastName");
+
+        if (currentTerm != null && !currentTerm.isEmpty()) {
+
+            criteriaMap.put(SearchTerm.LAST_NAME, currentTerm.toLowerCase());
+
+        }
+
+        return uDao.searchUserUserProfiles(criteriaMap);
+    }
 
 }
 

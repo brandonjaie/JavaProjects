@@ -4,6 +4,7 @@
     Author     : Brandon
 --%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="modal fade" id="editStatusModal" tabindex="-1" role="dialog" aria-labelledby="editStatusModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -12,7 +13,7 @@
                     <span aria-hidden="true">&times</span>
                     <span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title">Equipment Tag #: <span id="edit-header-asset-record-asset-id"></span></h4>
+                <h4 class="modal-title">Asset ID <span id="edit-header-asset-record-asset-id"></span></h4>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -20,9 +21,16 @@
                         <br>
                         <form class="form-horizontal" role="form">
                             <div class="form-group">
-                                <label for="edit-asset-record-member" class="col-md-5 control-label">Member Id</label>
-                                <div class="col-md-7">
-                                    <input type="text" class="form-control" id="edit-asset-record-member">
+                                <!--                                <label for="edit-asset-record-member" class="col-md-3 control-label">Member</label>-->
+                                <div class="col-md-12">
+                                    <!--                                    <input type="text" class="form-control" id="edit-asset-record-member">-->
+                                    <select class="form-control" id="edit-asset-record-member" name="">
+                                        <option value="" selected="selected">Select Member</option>                                      
+                                        <c:forEach items="${members}" var="member">          
+                                            <option value="${member.userId}">
+                                                ${member.userId} - ${member.firstName} ${member.lastName}</option>
+                                            </c:forEach>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -51,6 +59,9 @@
                                 Member ID is invalid
                             </div>
                             <div class="col-md-12" id="validationErrors" style="color: red">
+                            </div>
+                            <div class="col-md-12" id="deleteError" style="color: red">
+                                The asset is CHECKED OUT
                             </div>
                     </div>
                     <div class="col-md-6">

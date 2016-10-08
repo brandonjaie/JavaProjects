@@ -29,20 +29,20 @@ $(document).ready(function () {
         }
     });
 
-    $('#edit-asset-record-member').change(function (event) {
-        var memberEmpty = $('#memberEmpty');
-        var memberDoesNotExist = $('#memberDoesNotExist');
-        var member = $('#edit-asset-record-member').val();
-        var status = $('#edit-asset-record-status').val();
-        clearErrors();
-        if (member != "") {
-            memberEmpty.hide();
-            memberExists();
-        } else if (member == "") {
-            memberDoesNotExist.hide();
-            $('#edit-button').prop('disabled', false);
-        }
-    });
+//    $('#edit-asset-record-member').change(function (event) {
+//        var memberEmpty = $('#memberEmpty');
+//        var memberDoesNotExist = $('#memberDoesNotExist');
+//        var member = $('#edit-asset-record-member').val();
+//        var status = $('#edit-asset-record-status').val();
+//        clearErrors();
+//        if (member != "") {
+//            memberEmpty.hide();
+//            memberExists();
+//        } else if (member == "") {
+//            memberDoesNotExist.hide();
+//            $('#edit-button').prop('disabled', false);
+//        }
+//    });
 
     $('#edit-button').click(function (event) {
         var notAvailable = $('#assetNotAvailable');
@@ -128,6 +128,7 @@ $(document).ready(function () {
 
         event.preventDefault();
         var status = $('#edit-asset-record-status').val();
+        var deleteError = $('#deleteError');
         if (status === '2') {
             alert("You cannot delete an asset that is 'CHECKED OUT'");
             $('#editStatusModal').modal('hide');
@@ -316,6 +317,7 @@ $('#editStatusModal').on('show.bs.modal', function (event) {
     var notAvailable = $('#assetNotAvailable');
     var memberEmpty = $('#memberEmpty');
     var memberDoesNotExist = $('#memberDoesNotExist');
+    var deleteError = $('#deleteError');
     $(this).find('form')[0].reset(); // resets modal
     var element = $(event.relatedTarget);
     var assetId = element.data('asset-id');
@@ -325,6 +327,7 @@ $('#editStatusModal').on('show.bs.modal', function (event) {
     memberEmpty.hide();
     memberDoesNotExist.hide();
     duplicate.hide();
+    deleteError.hide();
 
     $.ajax({
         url: 'assetRecord/' + assetId

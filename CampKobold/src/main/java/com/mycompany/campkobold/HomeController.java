@@ -59,8 +59,11 @@ public class HomeController {
     }
 
     @RequestMapping(value = {"/assets"}, method = RequestMethod.GET)
-    public String displayAssetsPage() {
-
+    public String displayAssetsPage(Model model) {
+        
+        List<UserUserProfile> members = uDao.getAllMembers();
+        model.addAttribute("members", members);
+        
         return "assets";
     }
 
@@ -76,7 +79,7 @@ public class HomeController {
         UserUserProfile userUserProfile = new UserUserProfile();
         model.addAttribute("UserUserProfile", userUserProfile);
 
-        List<UserUserProfile> userUserProfiles = uDao.getAllUserUserProfiles();
+        List<UserUserProfile> userUserProfiles = uDao.getAllMembers();
         model.addAttribute("UserUserProfiles", userUserProfiles);
 
         return "members";

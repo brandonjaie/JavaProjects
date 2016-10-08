@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -187,8 +188,21 @@ public class RecordDaoImpl implements RecordDao {
 
     @Override
     public void deleteAssetRecordAndAsset(int assetId) {
-        jdbcTemplate.update(SQL_DELETE_ASSET_RECORD, assetId);
-        jdbcTemplate.update(SQL_DELETE_ASSET, assetId);
+
+//        boolean checkedOut = false;
+//
+//        List<AssetRecord> aList = getCurrentAssetRecordByAssetId(assetId);
+//
+//        for (AssetRecord record : aList) {
+//            if (record.getStatus().getStatusId() == 2) {
+//                checkedOut = true;
+//            } else {
+                jdbcTemplate.update(SQL_DELETE_ASSET_RECORD, assetId);
+                jdbcTemplate.update(SQL_DELETE_ASSET, assetId);
+//            }
+//        }
+//
+//        return checkedOut;
     }
 
     @Override

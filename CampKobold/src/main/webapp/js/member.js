@@ -6,11 +6,21 @@
 
 
 $(document).ready(function () {
-//    var empty = $('#userNameEmpty');
     var available = $('#userNameAvailable');
     var notAvailable = $('#userNameNotAvailable');
     available.hide();
     notAvailable.hide();
+
+    $(':checkbox').on('change', function () {
+        var check1 = $('#check1');
+        var isAdmin = check1.prop('name');
+        var check2 = $('#check2');
+        var isEmployee = check2.prop('name');
+        if (check1.is(':checked')) {
+            $(':checkbox[name="' + isAdmin + '"]').not($(this)).prop('checked', false);
+            $(':checkbox[name="' + isEmployee + '"]').not($(this)).prop('checked', false);
+        }
+    });
 
     if ($('#add-username').val().length != 0) {
         available.show();
@@ -62,7 +72,7 @@ $(document).ready(function () {
         event.preventDefault();
         $.ajax({
             type: 'POST',
-            url: 'search/users',
+            url: 'search/members',
             data: JSON.stringify({
                 userId: $('#search-userProfile-id').val(),
                 lastName: $('#search-userProfile-name').val()
@@ -105,7 +115,7 @@ function fillUserProfilesTable(data, status) {
                 .append($('<td>').text(userUserProfile.firstName + ' ' + userUserProfile.lastName))
                 .append($('<td>').text(userUserProfile.email))
                 .append($('<td>').text(userUserProfile.phone))
-                ); 
+                );
 
     });
 }

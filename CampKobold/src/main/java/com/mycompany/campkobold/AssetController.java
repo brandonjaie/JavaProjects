@@ -76,12 +76,12 @@ public class AssetController {
         Map<SearchTerm, String> criteriaMap = new HashMap<>();
 
         String currentTerm = searchMap.get("asset");
-        if (!currentTerm.isEmpty()) {
+        if (currentTerm != null && !currentTerm.isEmpty()) {
             criteriaMap.put(SearchTerm.ASSET_ID, currentTerm);
         }
         currentTerm = searchMap.get("category");
 
-        if (!currentTerm.isEmpty()) {
+        if (currentTerm != null && !currentTerm.isEmpty()) {
             criteriaMap.put(SearchTerm.CATEGORY_ID, currentTerm);
         }
         

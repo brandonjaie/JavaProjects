@@ -22,6 +22,8 @@ public interface UserDao {
     public void deleteUserUserProfile(int userId, UserUserProfile user); 
 
     public List<UserUserProfile> getAllUserUserProfiles();
+    
+    public List<UserUserProfile> getAllMembers();
 
 //    public UserUserProfile getUserUserProfileById(int userId);
 
@@ -36,5 +38,7 @@ public interface UserDao {
     public boolean userNameAvailability(String username);
 
     public List<UserUserProfile> searchUserUserProfiles(Map<SearchTerm, String> criteria);
+    
+    public List<UserUserProfile> searchMembers(Map<SearchTerm, String> criteria);
 
 }

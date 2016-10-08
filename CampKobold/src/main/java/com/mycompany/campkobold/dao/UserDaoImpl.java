@@ -50,7 +50,7 @@ public class UserDaoImpl implements UserDao {
         this.sDao = sDao;
     }
 
-    public void setADao(AssetDao aDao) { //check into this
+    public void setADao(AssetDao aDao) { 
         this.aDao = aDao;
     }
 
@@ -193,6 +193,24 @@ public class UserDaoImpl implements UserDao {
         }
         return uList;
     }
+    
+    @Override
+    public List<UserUserProfile> getAllMembers() {
+
+        
+
+        List<UserUserProfile> uList = getAllUserUserProfiles();
+        List<UserUserProfile> mList = new ArrayList<>();
+
+        for (UserUserProfile user : uList) {
+            Authority authority = xDao.getHighestAuthorityByUserName(user.getUserName());
+            if (user.getUserName().equals(authority.getUserName()) && authority.getAuthority().equals("ROLE_USER")) {
+                mList.add(user);
+            }
+        }
+
+        return mList;
+    }
 
     @Override
     public UserUserProfile getUserUserProfileByIdB(int userId) {
@@ -288,7 +306,52 @@ public class UserDaoImpl implements UserDao {
 
         return jdbcTemplate.query(sQuery.toString(), new UserDaoImpl.UserUserProfileMapper(), paramVals);
 
-//        }
+    }
+    
+        @Override
+    public List<UserUserProfile> searchMembers(Map<SearchTerm, String> criteria) {
+
+//        String order = "order by "
+//                + "(case when authority = 'ROLE_ADMIN' then 1 "
+//                + "when authority = 'ROLE_EMPLOYEE' then 2 "
+//                + "else 3 end) LIMIT 1";
+
+        StringBuilder sQuery = new StringBuilder("select * "
+                + "from user_profiles "
+                + "where ");
+
+        int numParams = criteria.size();
+
+        int paramPosition = 0;
+
+        String[] paramVals = new String[numParams];
+
+        Set<SearchTerm> keySet = criteria.keySet();
+
+        Iterator<SearchTerm> iter = keySet.iterator();
+
+        while (iter.hasNext()) {
+
+            SearchTerm currentKey = iter.next();
+
+            if (paramPosition > 0) {
+
+                sQuery.append(" and ");
+
+            }
+
+            sQuery.append(currentKey.getAlias()).append(currentKey);
+
+            sQuery.append(" = ? " /*+ order*/);
+
+            paramVals[paramPosition] = criteria.get(currentKey);
+
+            paramPosition++;
+
+        }
+
+        return jdbcTemplate.query(sQuery.toString(), new UserDaoImpl.UserUserProfileMapper(), paramVals);
+
     }
 
     private final class UserUserProfileMapper implements RowMapper<UserUserProfile> {

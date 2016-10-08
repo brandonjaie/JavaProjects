@@ -238,12 +238,20 @@
                             <div class="col-sm-8">
                                 <label class="checkbox-inline">
                                     <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                        <input type="checkbox" name="isAdmin" path="isAdmin" value="yes"/> Admin
+                                        <input type="checkbox" 
+                                               id="check1" 
+                                               name="isAdmin" 
+                                               path="isAdmin" 
+                                               value="yes"/> Admin
                                     </sec:authorize>
                                 </label>
                                 <label class="checkbox-inline">
                                     <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                        <input type="checkbox" name="isEmployee" path="isEmployee" value="yes"/> Employee
+                                        <input type="checkbox" 
+                                               id="check2" 
+                                               name="isEmployee" 
+                                               path="isEmployee" 
+                                               value="yes"/> Employee
                                     </sec:authorize>
                                 </label>
                             </div>
