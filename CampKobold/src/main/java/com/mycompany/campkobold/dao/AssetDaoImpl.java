@@ -131,7 +131,6 @@ public class AssetDaoImpl implements AssetDao {
 
             return jdbcTemplate.query(sQuery.toString(), new AssetDaoImpl.AssetMapper(), paramVals);
 
-//        }
     }
 
     private final class AssetMapper implements RowMapper<Asset> {

@@ -112,6 +112,7 @@ function deleteUser(id) {
             type: 'DELETE',
             url: 'users/' + id
         }).success(function () {
+            alert("Member " + id + " successfully deleted.");
             loadUsers();
         });
     }

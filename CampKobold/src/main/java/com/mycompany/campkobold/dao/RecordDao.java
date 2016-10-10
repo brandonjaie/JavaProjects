@@ -29,7 +29,7 @@ public interface RecordDao {
     
     public boolean assetAvailability(int assetId);
     
-    public boolean memberExists(int userId);
+//    public boolean memberExists(int userId);
     
     public boolean checkDuplicateStatus(int assetId, int statusId);
     
@@ -49,7 +49,7 @@ public interface RecordDao {
 
     public List<AssetRecord> getCurrentAssetRecordByAssetId(int assetId);
     
-    public List<AssetRecord> getCurrentAssetRecordByStatusId(int statusId);
+//    public List<AssetRecord> getCurrentAssetRecordByStatusId(int statusId);
 
     public List<AssetRecord> searchAssetRecords(Map<SearchTerm, String> criteria);
 

@@ -115,7 +115,6 @@ function fillUserProfilesTable(data, status) {
                 .append($('<td>').text(userUserProfile.firstName + ' ' + userUserProfile.lastName))
                 .append($('<td>').text(userUserProfile.email))
                 .append($('<td>').text(userUserProfile.phone))
-                );
-
+                ); 
     });
 }

@@ -28,7 +28,7 @@ $(document).ready(function () {
             $('#edit-asset-record-member').prop('disabled', true);
         }
     });
-
+//     *refactored - unused
 //    $('#edit-asset-record-member').change(function (event) {
 //        var memberEmpty = $('#memberEmpty');
 //        var memberDoesNotExist = $('#memberDoesNotExist');
@@ -127,13 +127,13 @@ $(document).ready(function () {
     $('#delete-asset-record-button').click(function (event) {
 
         event.preventDefault();
-        var status = $('#edit-asset-record-status').val();
-        var deleteError = $('#deleteError');
-        if (status === '2') {
-            alert("You cannot delete an asset that is 'CHECKED OUT'");
-            $('#editStatusModal').modal('hide');
-            loadRecords();
-        } else if (status !== '2') {
+//        var status = $('#edit-asset-record-status').val();
+//        var deleteError = $('#deleteError');
+//        if (status === '2') {
+//            alert("You cannot delete an asset that is 'CHECKED OUT'");
+//            $('#editStatusModal').modal('hide');
+//            loadRecords();
+//        } else if (status !== '2') {
             var answer = confirm("Do you really want to delete asset " + $('#edit-asset-record-asset-id').val() + " ?");
             if (answer === true) {
                 $.ajax({
@@ -141,13 +141,13 @@ $(document).ready(function () {
                     url: 'assetRecord/' + $('#edit-asset-record-asset-id').val()
                 }).success(function () {
                     $('#editStatusModal').modal('hide');
-                    alert("Asset successfully removed");
+                    alert("Asset successfully deleted");
                     loadRecords();
                 }).error(function (data, status) {
                     alert("error");
                 });
             }
-        }
+//        }
     }
     );
 });
@@ -185,37 +185,37 @@ function assetAvailability() {
         alert("Invalid input. Please try again");
     });
 }
-
-function memberExists() {
-    var memberDoesNotExist = $('#memberDoesNotExist');
-    memberDoesNotExist.hide();
-    $.ajax({
-        type: 'POST',
-        url: 'checkMemberExists',
-        data: JSON.stringify({
-            asset: {assetId: $('#edit-asset-record-asset-id').val()},
-            member: {userId: $('#edit-asset-record-member').val()},
-            employee: {userId: $('#edit-asset-record-employee').val()},
-            status: {statusId: $('#edit-asset-record-status').val()},
-            assetNote: $('#edit-asset-record-note').val()
-        }),
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        'dataType': 'json'
-    }).success(function (data, status) {
-        if (data.available == false) {
-            memberDoesNotExist.show();
-            $('#edit-button').prop('disabled', true);
-        } else {
-            memberDoesNotExist.hide();
-            $('#edit-button').prop('disabled', false);
-        }
-    }).error(function (data, status) {
-        alert("Invalid input. Please try again");
-    });
-}
+//** unused: refactored to add a select dropdown with members passed in
+//function memberExists() {
+//    var memberDoesNotExist = $('#memberDoesNotExist');
+//    memberDoesNotExist.hide();
+//    $.ajax({
+//        type: 'POST',
+//        url: 'checkMemberExists',
+//        data: JSON.stringify({
+//            asset: {assetId: $('#edit-asset-record-asset-id').val()},
+//            member: {userId: $('#edit-asset-record-member').val()},
+//            employee: {userId: $('#edit-asset-record-employee').val()},
+//            status: {statusId: $('#edit-asset-record-status').val()},
+//            assetNote: $('#edit-asset-record-note').val()
+//        }),
+//        headers: {
+//            'Accept': 'application/json',
+//            'Content-Type': 'application/json'
+//        },
+//        'dataType': 'json'
+//    }).success(function (data, status) {
+//        if (data.available == false) {
+//            memberDoesNotExist.show();
+//            $('#edit-button').prop('disabled', true);
+//        } else {
+//            memberDoesNotExist.hide();
+//            $('#edit-button').prop('disabled', false);
+//        }
+//    }).error(function (data, status) {
+//        alert("Invalid input. Please try again");
+//    });
+//}
 
 function duplicateStatus() {
     var duplicate = $('#duplicate');

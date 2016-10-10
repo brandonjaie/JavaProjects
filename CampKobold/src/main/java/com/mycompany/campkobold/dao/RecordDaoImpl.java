@@ -124,12 +124,12 @@ public class RecordDaoImpl implements RecordDao {
             + "where arec.record_id = ( SELECT MAX(record_id) from asset_records b where arec.asset_id = b.asset_id) "
             + "and arec.asset_id = ?";
 
-    private static final String SQL_SELECT_ASSET_RECORD_CURRENT_STATUS_BY_STATUS_ID
-            = "select arec.* "
-            + "from asset_records arec "
-            + "where arec.record_id = ( SELECT MAX(record_id) from asset_records b where arec.asset_id = b.asset_id) "
-            + "and (arec.asset_id) "
-            + "and arec.status_id = ?";
+//    private static final String SQL_SELECT_ASSET_RECORD_CURRENT_STATUS_BY_STATUS_ID
+//            = "select arec.* "
+//            + "from asset_records arec "
+//            + "where arec.record_id = ( SELECT MAX(record_id) from asset_records b where arec.asset_id = b.asset_id) "
+//            + "and (arec.asset_id) "
+//            + "and arec.status_id = ?";
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
@@ -233,22 +233,22 @@ public class RecordDaoImpl implements RecordDao {
         return assetAvailable;
     }
 
-    @Override
-    public boolean memberExists(int userId) {
-
-        boolean memberExists = false;
-
-        List<UserUserProfile> uList = uDao.getAllUserUserProfiles();
-
-        for (UserUserProfile user : uList) {
-            Authority authority = xDao.getHighestAuthorityByUserName(user.getUserName());
-            if (userId == user.getUserId() && authority.getAuthority().equals("ROLE_USER")) {
-                memberExists = true;
-            }
-        }
-
-        return memberExists;
-    }
+//    @Override
+//    public boolean memberExists(int userId) {
+//
+//        boolean memberExists = false;
+//
+//        List<UserUserProfile> uList = uDao.getAllUserUserProfiles();
+//
+//        for (UserUserProfile user : uList) {
+//            Authority authority = xDao.getHighestAuthorityByUserName(user.getUserName());
+//            if (userId == user.getUserId() && authority.getAuthority().equals("ROLE_USER")) {
+//                memberExists = true;
+//            }
+//        }
+//
+//        return memberExists;
+//    }
 
     @Override
     public boolean checkDuplicateStatus(int assetId, int statusId) {
@@ -314,10 +314,10 @@ public class RecordDaoImpl implements RecordDao {
         return jdbcTemplate.query(SQL_SELECT_ASSET_RECORD_CURRENT_STATUS_BY_ASSET_ID, new RecordMapper(), assetId);
     }
 
-    @Override
-    public List<AssetRecord> getCurrentAssetRecordByStatusId(int statusId) {
-        return jdbcTemplate.query(SQL_SELECT_ASSET_RECORD_CURRENT_STATUS_BY_STATUS_ID, new RecordMapper(), statusId);
-    }
+//    @Override // Not used but may find this useful for other functionality
+//    public List<AssetRecord> getCurrentAssetRecordByStatusId(int statusId) {
+//        return jdbcTemplate.query(SQL_SELECT_ASSET_RECORD_CURRENT_STATUS_BY_STATUS_ID, new RecordMapper(), statusId);
+//    }
 
     @Override
     public List<AssetRecord> searchAssetRecords(Map<SearchTerm, String> criteria) {

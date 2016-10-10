@@ -72,14 +72,14 @@ public class AssetRecordController {
         return assetRecord;
     }
 
-    @RequestMapping(value = "/checkMemberExists", method = RequestMethod.POST)
-    @ResponseBody
-    public AssetRecord checkMemberExists(@RequestBody AssetRecord assetRecord) {
-
-        assetRecord.setAvailable(rDao.memberExists(assetRecord.getMember().getUserId()));
-
-        return assetRecord;
-    }
+//    @RequestMapping(value = "/checkMemberExists", method = RequestMethod.POST)
+//    @ResponseBody
+//    public AssetRecord checkMemberExists(@RequestBody AssetRecord assetRecord) {
+//
+//        assetRecord.setAvailable(rDao.memberExists(assetRecord.getMember().getUserId()));
+//
+//        return assetRecord;
+//    }
 
     @RequestMapping(value = "/checkDuplicateStatus", method = RequestMethod.POST)
     @ResponseBody

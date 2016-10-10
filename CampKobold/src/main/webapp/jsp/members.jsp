@@ -124,13 +124,7 @@
 
                         </tbody>
                     </table>
-                    <%--<c:forEach var="member" items="${userProfiles}">
-                        <s:url value="profile/1" var="profile_url">
-                            <s:param name="userId" value="${member.userId = 1}"/>
-                        </s:url>
 
-                            <a href="${profile_url}">Delete</a> 
-                        </c:forEach>--%>
                 </div>
 
                 <div class="col-md-6">
@@ -152,17 +146,7 @@
                                           placeholder="Check Username Availability"/>
                                 <sf:errors path="userName" cssClass="text-danger"></sf:errors>
                                 </div>
-                            <%--<div class="col-sm-2" id="userNameEmpty">
-                                <b>Enter Username</b>
-                            </div>--%>
-                            <!--                            <div id="userNameAvailable">
-                                                            <img src="${pageContext.request.contextPath}/img/yes.png" 
-                                                                 height="15" width="15">
-                                                        </div>
-                                                        <div id="userNameNotAvailable">
-                                                            <img src="${pageContext.request.contextPath}/img/no3.png" 
-                                                                 height="15" width="15">
-                                                        </div>-->
+
                         </div>
                         <div class="form-group">
                             <label for="add-first-name" class="col-sm-3 control-label">First Name:</label>
@@ -175,15 +159,7 @@
                                           placeholder="First Name"/>
                                 <sf:errors path="firstName" cssClass="text-danger"></sf:errors>
                                 </div>
-                            <%--<div class="col-sm-2">                            
-                                <div class="checkbox">
-                                    <label>
-                                    <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                        <input type="checkbox" name="isEmployee" path="isEmployee" value="yes"/> Employee?
-                                    </sec:authorize>
-                                </label>
-                            </div>
-                        </div>--%>
+
                         </div>
                         <div class="form-group">
                             <label for="add-last-name" class="col-sm-3 control-label">Last Name:</label>
@@ -196,15 +172,7 @@
                                           placeholder="Last Name"/>
                                 <sf:errors path="lastName" cssClass="text-danger"></sf:errors>
                                 </div>
-                            <%--<div class="col-sm-2">                            
-                                <div class="checkbox">
-                                    <label for="admincheckbox">
-                                    <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                        <input type="checkbox" name="isAdmin" path="isAdmin" value="yes"/> Admin?
-                                    </sec:authorize>
-                                </label>
-                            </div>
-                        </div>--%>
+
                         </div>
                         <div class="form-group">
                             <label for="email" class="col-sm-3 control-label">Email:</label>
@@ -256,8 +224,7 @@
                                 </label>
                             </div>
                         </div>
-                        <!--                        <div class="col-sm-offset-2 col-sm-10">
-                                                </div>-->
+
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-8">
                                 <button type="submit" id="add-member-button" class="btn btn-primary">Add Member</button>

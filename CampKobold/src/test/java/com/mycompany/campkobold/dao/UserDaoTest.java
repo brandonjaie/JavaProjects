@@ -18,9 +18,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -178,6 +176,32 @@ public class UserDaoTest {
         assertFalse(uList3.isEmpty());
 
     }
+    
+    /**
+     * Test of getAllMembers method, of class UserDao.
+     */
+    @Test
+    public void testGetAllMembers() {
+
+        List<UserUserProfile> uList0 = uDao.getAllUserUserProfiles();
+        assertEquals(0, uList0.size());
+
+        uDao.addUserUserProfile(u1);
+        uDao.addUserUserProfile(u2);
+        uDao.addUserUserProfile(u3);
+
+        List<UserUserProfile> uList3 = uDao.getAllUserUserProfiles();
+        assertEquals(3, uList3.size());
+        assertFalse(uList3.isEmpty());
+        
+        List<UserUserProfile> mList = uDao.getAllMembers();
+        assertEquals(1, mList.size());
+        
+        for (UserUserProfile userUserProfile : mList) {
+            assertEquals(userUserProfile.getUserId(), u3.getUserId());
+        }
+
+    }
 
     /**
      * Test of getUserUserProfileByIdB method, of class UserDao.
@@ -313,6 +337,33 @@ public class UserDaoTest {
 
         for (UserUserProfile user : uList) {
             if (user.getLastName().equals("ADMIN")) {
+                exists = true;
+            }
+        }
+
+        assertTrue(exists);
+    }
+    
+     /**
+     * Test of searchMembers method, of class UserDao.
+     */
+    @Test
+    public void testSearchMembers() {
+
+        uDao.addUserUserProfile(u3);
+
+        Map<SearchTerm, String> criteria = new HashMap<>();
+
+        criteria.put(SearchTerm.LAST_NAME, "USER");
+
+        List<UserUserProfile> uList = uDao.searchMembers(criteria);
+
+        assertEquals(1, uList.size());
+
+        Boolean exists = false;
+
+        for (UserUserProfile user : uList) {
+            if (user.getLastName().equals("USER")) {
                 exists = true;
             }
         }

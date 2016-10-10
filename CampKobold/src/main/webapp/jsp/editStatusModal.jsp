@@ -53,7 +53,7 @@
                                 Duplicate Status Entered
                             </div>
                             <div class="col-md-12" id="memberEmpty" style="color: red">
-                                You must enter a Member ID
+                                You must Select a Member 
                             </div>
                             <div class="col-md-12" id="memberDoesNotExist" style="color: red">
                                 Member ID is invalid

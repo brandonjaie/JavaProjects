@@ -147,10 +147,6 @@
                                               placeholder="Password"/>
                                     <sf:errors path="password" cssClass="text-danger"></sf:errors>
                                     </div>
-<!--                                    <div id="passCorrect"><img src="${pageContext.request.contextPath}/img/yes.png" 
-                                                           height="15" width="15"></div>
-                                <div id="passIncorrect"><img src="${pageContext.request.contextPath}/img/no3.png" 
-                                                             height="15" width="15"></div>-->
                             </div>
 
                             <div class="form-group">
@@ -166,19 +162,13 @@
                                     <sf:hidden path="userName"/>
                                     <sf:hidden path="enabled"/>
                                 </div>
-                                <!--                                <div id="cPassCorrect">
-                                                                    <img src="${pageContext.request.contextPath}/img/yes.png" 
-                                                                         height="15" width="15"></div>
-                                                                <div id="incorrect">
-                                                                    <img src="${pageContext.request.contextPath}/img/no3.png" 
-                                                                         height="15" width="15">
-                                                                </div>-->
+
                             </div>
                             <div class="col-sm-offset-4" id="incorrectMessage" style="font-family: Arial; color: crimson">
-                                <b>Passwords must match.</b>
+                                <b>Passwords must match</b>
                             </div>
                             <div class="col-sm-offset-4" id="correctMessage" style="font-family: Arial; color: forestgreen">
-                                <b>Passwords match.</b>
+                                <b>Passwords match</b>
                             </div>
                         </div>
                         <div class="col-sm-offset-3 col-sm-8">
@@ -192,12 +182,27 @@
                     <table class="table table-responsive table-condensed table-striped " style="border: 1px solid lightgray">
                         <tr style="background-color: lightslategray; color: white">
                             <th>Date</th>
-                            <th>Employee</th>
+                            <c:choose>
+                                <c:when test="${authority.authority == 'ROLE_USER'}">
+                                <th>Employee</th>
+                                </c:when>
+                                <c:otherwise>
+                                <th>Member</th>
+                                </c:otherwise>                              
+                            </c:choose>
                             <th>Status</th>
                             <th style="text-align: center">Asset</th>
                         </tr>
                         <tbody id="profileRows">
-                            <c:forEach var="rec" items="${records}">
+                            <c:forEach var="rec" items="${erecords}">
+                                <tr> 
+                                    <td>${rec.recordDate}</td>
+                                    <td>${rec.member.firstName} ${rec.member.lastName}</td>
+                                    <td>${rec.status.status}</td>
+                                    <td style="text-align: center">${rec.asset.assetId}</td>
+                                </tr>
+                            </c:forEach>
+                            <c:forEach var="rec" items="${mrecords}">
                                 <tr> 
                                     <td>${rec.recordDate}</td>
                                     <td>${rec.employee.firstName} ${rec.employee.lastName}</td>

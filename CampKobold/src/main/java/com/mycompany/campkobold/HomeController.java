@@ -5,9 +5,11 @@
  */
 package com.mycompany.campkobold;
 
+import com.mycompany.campkobold.dao.AuthorityDao;
 import com.mycompany.campkobold.dao.RecordDao;
 import com.mycompany.campkobold.dao.UserDao;
 import com.mycompany.campkobold.dto.AssetRecord;
+import com.mycompany.campkobold.dto.Authority;
 import com.mycompany.campkobold.dto.UserUserProfile;
 import java.security.Principal;
 import java.util.List;
@@ -30,11 +32,13 @@ public class HomeController {
 
     private final RecordDao rDao;
     private final UserDao uDao;
+    private final AuthorityDao xDao;
 
     @Inject
-    public HomeController(RecordDao rDao, UserDao uDao) {
+    public HomeController(RecordDao rDao, UserDao uDao, AuthorityDao xDao) {
         this.rDao = rDao;
         this.uDao = uDao;
+        this.xDao = xDao;
     }
 
     @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
@@ -92,15 +96,19 @@ public class HomeController {
         UserUserProfile user = uDao.getUserUserProfileByUsername(username);
         int userId = user.getUserId();
         model.addAttribute("UserUserProfile", user);
-
+        
+        Authority authority = xDao.getHighestAuthorityByUserName(user.getUserName());
+        model.addAttribute("authority", authority);
+        
         if (req.isUserInRole("ROLE_ADMIN") || req.isUserInRole("ROLE_EMPLOYEE")) {
 
             List<AssetRecord> record = rDao.getEmployeeAssetRecordsByEmployeeId(userId);
-            model.addAttribute("records", record);
+            model.addAttribute("erecords", record);
 
         } else {
             List<AssetRecord> record = rDao.getMemberAssetRecordsByMemberId(userId);
-            model.addAttribute("records", record);
+            model.addAttribute("mrecords", record);
+           
         }
 
         return "profile";

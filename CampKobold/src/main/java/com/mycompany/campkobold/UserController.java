@@ -116,7 +116,7 @@ public class UserController {
 
         }
 
-        return uDao.searchUserUserProfiles(criteriaMap);
+        return uDao.searchMembers(criteriaMap);
     }
 
 }

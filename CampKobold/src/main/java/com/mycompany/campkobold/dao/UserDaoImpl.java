@@ -50,7 +50,7 @@ public class UserDaoImpl implements UserDao {
         this.sDao = sDao;
     }
 
-    public void setADao(AssetDao aDao) { 
+    public void setADao(AssetDao aDao) {
         this.aDao = aDao;
     }
 
@@ -91,7 +91,6 @@ public class UserDaoImpl implements UserDao {
 //            + "join authorities a "
 //            + "on u.username = a.username "
 //            + "where u.user_id = ?";
-    
     private static final String SQL_SELECT_USER_USER_PROFILE_BY_ID_B
             = "select * "
             + "from users u "
@@ -193,11 +192,9 @@ public class UserDaoImpl implements UserDao {
         }
         return uList;
     }
-    
+
     @Override
     public List<UserUserProfile> getAllMembers() {
-
-        
 
         List<UserUserProfile> uList = getAllUserUserProfiles();
         List<UserUserProfile> mList = new ArrayList<>();
@@ -307,18 +304,21 @@ public class UserDaoImpl implements UserDao {
         return jdbcTemplate.query(sQuery.toString(), new UserDaoImpl.UserUserProfileMapper(), paramVals);
 
     }
-    
-        @Override
+
+    @Override
     public List<UserUserProfile> searchMembers(Map<SearchTerm, String> criteria) {
 
-//        String order = "order by "
-//                + "(case when authority = 'ROLE_ADMIN' then 1 "
-//                + "when authority = 'ROLE_EMPLOYEE' then 2 "
-//                + "else 3 end) LIMIT 1";
-
         StringBuilder sQuery = new StringBuilder("select * "
-                + "from user_profiles "
-                + "where ");
+                + "from authorities a "
+                + "join users u "
+                + "on a.username = u.username "
+                + "join user_profiles up "
+                + "on u.user_id = up.user_id "
+                + "where a.username IN (SELECT a.username "
+                + "from authorities a "
+                + "group by username "
+                + "HAVING COUNT(*) = 1) "
+                + "and ");
 
         int numParams = criteria.size();
 
@@ -342,7 +342,7 @@ public class UserDaoImpl implements UserDao {
 
             sQuery.append(currentKey.getAlias()).append(currentKey);
 
-            sQuery.append(" = ? " /*+ order*/);
+            sQuery.append(" = ? ");
 
             paramVals[paramPosition] = criteria.get(currentKey);
 
