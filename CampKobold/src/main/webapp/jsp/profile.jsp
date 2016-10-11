@@ -13,13 +13,13 @@
 <html>
     <head>
         <title>Kobold Camp Asset Management</title>
-        <!-- Bootstrap core CSS -->
+
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Custom styles for this template -->
+        <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
+
         <link href="${pageContext.request.contextPath}/css/responsive.css" rel="stylesheet">
 
-        <!-- SWC Icon -->
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/trees.png">
 
     </head>
@@ -28,9 +28,7 @@
             <div class="content">
                 <img src="${pageContext.request.contextPath}/img/trees.png" 
                      alt="tree_logo" 
-                     style="padding-right: 5px" 
-                     height="30" 
-                     width="30" 
+                     class="trees"
                      align="left">
                 <h2>Kobold Camp</h2>
             </div>
@@ -44,7 +42,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <div class="navbar-brand" style="pointer-events: none; background-color: lightslategray; color: white">Equipment Rental</div>
+                        <div class="navbar-brand">Equipment Rental</div>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -67,7 +65,7 @@
                                 </sec:authorize>
                         </ul>
                         <div class="signout navbar-form navbar-right">
-                            <button class="btn" style="pointer-events: none; background-color: lightslategray; color: white">
+                            <button class="btn principal">
                                 <sec:authentication property="principal.username"/>
                             </button>
                             <a href="${pageContext.request.contextPath}/j_spring_security_logout"> 
@@ -82,7 +80,7 @@
         <div class="container">
             <h4>Kobold Camp Member Profile</h4>
             <div class="row">
-                <div class="col-md-6" style="padding: 20px">
+                <div class="col-md-6 pad">
                     <!-- EDIT USER PROFILE NO AJAX -->
                     <sf:form class="form-horizontal" 
                              modelAttribute="UserUserProfile" 
@@ -135,7 +133,7 @@
                                 <%--<sf:hidden id="edit-user-id" path="userId"/>--%>
                             </div>
                         </div>
-                        <div style="padding: 10px">
+                        <div class="pad2">
                             <h4>Update Password</h4>
                             <div class="form-group">
                                 <label for="new-password" class="col-sm-4 control-label">New Password:</label>
@@ -147,11 +145,11 @@
                                               placeholder="Password"/>
                                     <sf:errors path="password" cssClass="text-danger"></sf:errors>
                                     </div>
-                            </div>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="repeat-password" class="col-sm-4 control-label">Repeat Password:</label>
-                                <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="repeat-password" class="col-sm-4 control-label">Repeat Password:</label>
+                                    <div class="col-sm-6">
                                     <sf:input type="password" 
                                               class="form-control passClass" 
                                               id="edit-repeat-password" 
@@ -164,10 +162,10 @@
                                 </div>
 
                             </div>
-                            <div class="col-sm-offset-4" id="incorrectMessage" style="font-family: Arial; color: crimson">
+                            <div class="col-sm-offset-4" id="incorrectMessage">
                                 <b>Passwords must match</b>
                             </div>
-                            <div class="col-sm-offset-4" id="correctMessage" style="font-family: Arial; color: forestgreen">
+                            <div class="col-sm-offset-4" id="correctMessage">
                                 <b>Passwords match</b>
                             </div>
                         </div>
@@ -179,19 +177,19 @@
                 <div class="col-md-6">
                     <br>
                     <h4>Rental History</h4>
-                    <table class="table table-responsive table-condensed table-striped " style="border: 1px solid lightgray">
-                        <tr style="background-color: lightslategray; color: white">
+                    <table class="table table-responsive table-condensed table-striped">
+                        <tr>
                             <th>Date</th>
-                            <c:choose>
-                                <c:when test="${authority.authority == 'ROLE_USER'}">
-                                <th>Employee</th>
-                                </c:when>
-                                <c:otherwise>
-                                <th>Member</th>
-                                </c:otherwise>                              
-                            </c:choose>
+                                <c:choose>
+                                    <c:when test="${authority.authority == 'ROLE_USER'}">
+                                    <th>Employee</th>
+                                    </c:when>
+                                    <c:otherwise>
+                                    <th>Member</th>
+                                    </c:otherwise>                              
+                                </c:choose>
                             <th>Status</th>
-                            <th style="text-align: center">Asset</th>
+                            <th class="tableHeading">Asset</th>
                         </tr>
                         <tbody id="profileRows">
                             <c:forEach var="rec" items="${erecords}">
@@ -199,7 +197,7 @@
                                     <td>${rec.recordDate}</td>
                                     <td>${rec.member.firstName} ${rec.member.lastName}</td>
                                     <td>${rec.status.status}</td>
-                                    <td style="text-align: center">${rec.asset.assetId}</td>
+                                    <td class="tableHeading">${rec.asset.assetId}</td>
                                 </tr>
                             </c:forEach>
                             <c:forEach var="rec" items="${mrecords}">
@@ -207,7 +205,7 @@
                                     <td>${rec.recordDate}</td>
                                     <td>${rec.employee.firstName} ${rec.employee.lastName}</td>
                                     <td>${rec.status.status}</td>
-                                    <td style="text-align: center">${rec.asset.assetId}</td>
+                                    <td class="tableHeading">${rec.asset.assetId}</td>
                                 </tr>
                             </c:forEach>
                         </tbody>

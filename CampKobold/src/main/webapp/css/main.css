@@ -1,0 +1,95 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 10, 2016, 1:54:11 PM
+    Author     : Brandon
+*/
+
+/*NAVIGATION & HEADING*/
+
+.trees {
+
+    padding-right: 5px;
+    height: 30px; 
+    width: 30px;
+}
+
+.navbar-brand {
+
+    pointer-events: none; 
+    background-color: lightslategray; 
+    color: #FFFFFF !important;
+}
+
+.principal {
+
+    pointer-events: none; 
+    background-color: lightslategray; 
+    color: #FFFFFF;
+}
+
+/*TABLES*/
+
+.table {
+
+    border: 1px solid lightgray;
+}
+
+tr th {
+    background-color: lightslategray;
+    color: white; 
+}
+
+.tableHeading {
+
+    text-align: center;
+}
+
+/*HOME, RENTAL, ERROR, HISTORY, PROFILE*/
+
+.pad {
+
+    padding: 20px;
+}
+
+.pad2 {
+    padding: 10px;
+}
+
+.tepee {
+    height: 400px;
+    width: 400px;
+}
+
+
+/*ERRORS - MODAL, ADMIN, PROFILE PAGES*/
+
+.error {
+    color: red;
+}
+
+#incorrectMessage {
+    font-family: Arial; 
+    color: crimson;
+}
+
+#correctMessage {
+    font-family: Arial; 
+    color: forestgreen;
+}
+
+/*FOOTER*/
+
+.footer {
+    margin-top: 40px;
+}
+
+/* changes google's autocomplete form input
+   background from yellow to white - not used*/
+/*input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}*/
+

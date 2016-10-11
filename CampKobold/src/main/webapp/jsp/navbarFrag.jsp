@@ -4,52 +4,11 @@
     Author     : Brandon
 --%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-<style>
-    @media (max-width: 1000px) {
-        .navbar-header {
-            float: none;
-        }
-        .navbar-left,.navbar-right {
-            float: none !important;
-        }
-        .navbar-toggle {
-            display: block;
-        }
-        .navbar-collapse {
-            border-top: 1px solid transparent;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-        }
-        .navbar-fixed-top {
-            top: 0;
-            border-width: 0 0 1px;
-        }
-        .navbar-collapse.collapse {
-            display: none!important;
-        }
-        .navbar-nav {
-            float: none!important;
-            margin-top: 7.5px;
-        }
-        .navbar-nav>li {
-            float: none;
-        }
-        .navbar-nav>li>a {
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-        .collapse.in{
-            display:block !important;
-        }
-    }
-
-</style>
 <div class="container">
     <div class="content">
         <img src="${pageContext.request.contextPath}/img/trees.png" 
              alt="tree_logo" 
-             style="padding-right: 5px" 
-             height="30" 
-             width="30" 
+             class="trees"
              align="left">
         <h2>Kobold Camp</h2>
     </div>
@@ -63,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <div class="navbar-brand" style="pointer-events: none; background-color: lightslategray; color: white">Equipment Rental</div>
+                <div class="navbar-brand">Equipment Rental</div>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -109,7 +68,7 @@
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
                     <div class="signout navbar-form navbar-right">
-                        <button class="btn" style="pointer-events: none; background-color: lightslategray; color: white">
+                        <button class="btn principal">
                             <sec:authentication property="principal.username"/>
                         </button>
                         <a href="${pageContext.request.contextPath}/j_spring_security_logout"> 

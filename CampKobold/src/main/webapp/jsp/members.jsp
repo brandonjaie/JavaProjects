@@ -13,30 +13,21 @@
 <html>
     <head>
         <title>Kobold Camp Asset Management</title>
-        <!-- Bootstrap core CSS -->
+
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Custom styles for this template -->
+        <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
+
         <link href="${pageContext.request.contextPath}/css/responsive.css" rel="stylesheet">
 
-        <!-- SWC Icon -->
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/trees.png">
-        <style>
-
-            input:-webkit-autofill {
-                -webkit-box-shadow: 0 0 0px 1000px white inset;
-            }
-        </style>
-
     </head>
     <body>
         <div class="container">
             <div class="content">
                 <img src="${pageContext.request.contextPath}/img/trees.png" 
                      alt="tree_logo" 
-                     style="padding-right: 5px" 
-                     height="30" 
-                     width="30" 
+                     class="trees"
                      align="left">
                 <h2>Kobold Camp</h2>
             </div>
@@ -50,7 +41,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <div class="navbar-brand" style="pointer-events: none; background-color: lightslategray; color: white">Equipment Rental</div>
+                        <div class="navbar-brand">Equipment Rental</div>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -73,7 +64,7 @@
                                 </sec:authorize>
                         </ul>
                         <div class="signout navbar-form navbar-right">
-                            <button class="btn" style="pointer-events: none; background-color: lightslategray; color: white">
+                            <button class="btn principal">
                                 <sec:authentication property="principal.username"/>
                             </button>
                             <a href="${pageContext.request.contextPath}/j_spring_security_logout"> 
@@ -91,22 +82,22 @@
 
                     <form class="form-horizontal">
                         <div class="form-group">
-                        <div class="col-sm-4">
-                            <label></label>
-                            <input type="text" class="form-control" id="search-userProfile-id" placeholder="Member Id">
-                        </div>
-                        <div class="col-sm-4">
-                            <label></label>
-                            <input type="text" class="form-control" id="search-userProfile-name" placeholder="Last Name">
-                        </div>
-                        <div class="col-sm-4">
-                            <br>
-                            <button type="submit" id="search-button" class="btn btn-primary">Search</button>
-                        </div>
+                            <div class="col-sm-4">
+                                <label></label>
+                                <input type="text" class="form-control" id="search-userProfile-id" placeholder="Member Id">
+                            </div>
+                            <div class="col-sm-4">
+                                <label></label>
+                                <input type="text" class="form-control" id="search-userProfile-name" placeholder="Last Name">
+                            </div>
+                            <div class="col-sm-4">
+                                <br>
+                                <button type="submit" id="search-button" class="btn btn-primary">Search</button>
+                            </div>
                         </div>
                     </form>
-                    <table class="table table-responsive table-condensed table-striped" style="border: 1px solid lightgray">
-                        <tr style="background-color: lightslategray; color: white">
+                    <table class="table table-responsive table-condensed table-striped">
+                        <tr>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
@@ -132,7 +123,8 @@
                              modelAttribute="UserUserProfile"
                              role="form" 
                              action="addUserUserProfileNoAjax" 
-                             method="POST">
+                             method="POST"
+                             autocomplete="off">
                         <br>
                         <h4>Add Member</h4>
                         <div class="form-group">
@@ -147,10 +139,10 @@
                                 <sf:errors path="userName" cssClass="text-danger"></sf:errors>
                                 </div>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="add-first-name" class="col-sm-3 control-label">First Name:</label>
-                            <div class="col-sm-9">
+                            </div>
+                            <div class="form-group">
+                                <label for="add-first-name" class="col-sm-3 control-label">First Name:</label>
+                                <div class="col-sm-9">
                                 <sf:input type="text" 
                                           class="form-control" 
                                           id="add-first-name" 
@@ -160,10 +152,10 @@
                                 <sf:errors path="firstName" cssClass="text-danger"></sf:errors>
                                 </div>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="add-last-name" class="col-sm-3 control-label">Last Name:</label>
-                            <div class="col-sm-9">
+                            </div>
+                            <div class="form-group">
+                                <label for="add-last-name" class="col-sm-3 control-label">Last Name:</label>
+                                <div class="col-sm-9">
                                 <sf:input type="text" 
                                           class="form-control" 
                                           id="add-last-name" 
@@ -173,10 +165,10 @@
                                 <sf:errors path="lastName" cssClass="text-danger"></sf:errors>
                                 </div>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="col-sm-3 control-label">Email:</label>
-                            <div class="col-sm-9">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="col-sm-3 control-label">Email:</label>
+                                <div class="col-sm-9">
                                 <sf:input type="text" 
                                           class="form-control" 
                                           id="add-email" 

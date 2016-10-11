@@ -33,27 +33,40 @@
                     authentication-failure-url="/error?login_error=1"/>
         <!-- #3d - Go back to home page when user logs out -->
         <logout logout-success-url="/home"/>
-        <!-- #3e - Access to these endpoints require admin role-->
-<!--        <intercept-url pattern="/home" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE', 'ROLE_USER')"/>-->
-<!--        <intercept-url pattern="/rentals" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE', 'ROLE_USER')"/>-->
-        <intercept-url pattern="/assets/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
+        <!-- #3e -->
+
         <intercept-url pattern="/members" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
-<!--        <intercept-url pattern="/addUserUserProfileNoAjax" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>-->
         <intercept-url pattern="/admin" access="hasAnyRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/profile" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE', 'ROLE_USER')"/>
-
         
-        <!-- #3f - Access to all other controller endpoints require employee role /these need to be checked for syntax -->
-        <!--<intercept-url pattern="/home" access="ROLE_EMPLOYEE"/>
-        <intercept-url pattern="/rentals" access="ROLE_EMPLOYEE"/>
-        <intercept-url pattern="/assets" access="ROLE_EMPLOYEE"/>
-        <intercept-url pattern="/members" access="ROLE_EMPLOYEE"/>
-        <intercept-url pattern="/profile" access="ROLE_EMPLOYEE"/>-->
+        <intercept-url pattern="/addUserUserProfileNoAjax" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
+        <intercept-url pattern="/editUserUserProfileNoAjax" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE', 'ROLE_USER')"/>
+         
+        <intercept-url pattern="/asset" access="hasAnyRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/assets/{id}" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
+        <intercept-url pattern="/assets/" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>       
+        <intercept-url pattern="search/assets" access="permitAll"/>
+               
+        <!--        *delete asset and asset record = DELETE | access = ROLE_ADMIN only-->
+        <intercept-url pattern="/assetRecordDelete/{id}" access="hasAnyRole('ROLE_ADMIN')"/>
+        <!--        get asset record by asset id = GET | access = ROLE_ADMIN and ROLE_EMPLOYEE only-->
+        <intercept-url pattern="/assetRecord/{id}" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
+        <intercept-url pattern="/assetRecord" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/> 
+        <!--        *update asset record = POST    -->
+        <intercept-url pattern="/assetRecordUpdate" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
+        <!--        get asset record by current status = GET | access = ROLE_ADMIN and ROLE_EMPLOYEE only  -->
+        <intercept-url pattern="/assetRecords" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>        
+        <intercept-url pattern="/checkAssetAvailability" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
+        <intercept-url pattern="/checkDuplicateStatus" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
+        <intercept-url pattern="search/assetRecords" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
         
-        <!-- #3g - Access to all other controller endpoints require user role /these need to be checked for syntax -->
-        <!--<intercept-url pattern="/home" access="ROLE_USER"/>
-        <intercept-url pattern="/rentals" access="ROLE_USER"/>
-        <intercept-url pattern="/profile" access="ROLE_USER"/>-->
+        <intercept-url pattern="/users/{id}" access="hasAnyRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/users" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
+        <intercept-url pattern="/checkUserNameAvailability" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
+        <intercept-url pattern="/resetPassword/{id}" access="hasAnyRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/updatePassword" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE', 'ROLE_USER')"/>
+        <intercept-url pattern="search/users" access="hasAnyRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="search/members" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
         
     </http>
     <!-- #4 - Authentication Manager config -->

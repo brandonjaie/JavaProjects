@@ -17,13 +17,13 @@
 <html>
     <head>
         <title>Kobold Camp Asset Management</title>
-        <!-- Bootstrap core CSS -->
+
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Custom styles for this template -->
+        <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
+
         <link href="${pageContext.request.contextPath}/css/responsive.css" rel="stylesheet">
 
-        <!-- SWC Icon -->
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/trees.png">
 
     </head>
@@ -32,9 +32,7 @@
             <div class="content">
                 <img src="${pageContext.request.contextPath}/img/trees.png" 
                      alt="tree_logo" 
-                     style="padding-right: 5px" 
-                     height="30" 
-                     width="30" 
+                     class="trees"
                      align="left">
                 <h2>Kobold Camp</h2>
             </div>
@@ -48,7 +46,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <div class="navbar-brand" style="pointer-events: none; background-color: lightslategray; color: white">Equipment Rental</div>
+                        <div class="navbar-brand">Equipment Rental</div>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -71,7 +69,7 @@
                                 </sec:authorize>
                         </ul>
                         <div class="signout navbar-form navbar-right">
-                            <button class="btn" style="pointer-events: none; background-color: lightslategray; color: white">
+                            <button class="btn principal" style="pointer-events: none; background-color: lightslategray; color: white">
                                 <sec:authentication property="principal.username"/>
                             </button>
                             <a href="${pageContext.request.contextPath}/j_spring_security_logout"> 
@@ -87,9 +85,9 @@
             <h4>Kobold Camp Assets</h4> 
             <div class="row">
                 <div class="col-sm-1"></div>
-                <div class="col-sm-10" style="padding: 20px">
-                    <table class="table table-responsive table-condensed" style="border: 1px solid lightgray">
-                        <tr style="background-color: lightslategray; color: white">
+                <div class="col-sm-10 pad">
+                    <table class="table table-responsive table-condensed">
+                        <tr>
                             <th width="5%">ID</th>
                             <th width="5%">Category</th>
                             <th width="5%">Description</th>
@@ -111,10 +109,10 @@
             </div>
             <h4>Rental History</h4> 
             <div class="row">
-                
-                <div class="col-sm-12" style="padding: 20px">
-                    <table class="table table-responsive table-condensed table-striped" style="border: 1px solid lightgray">
-                        <tr style="background-color: lightgray">
+
+                <div class="col-sm-12 pad">
+                    <table class="table table-responsive table-condensed table-striped">
+                        <tr>
                             <th width="10%">Date</th>
                             <th width="10%">Employee</th>
                             <th width="10%">Status</th>

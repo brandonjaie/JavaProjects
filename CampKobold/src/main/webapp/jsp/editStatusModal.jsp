@@ -21,9 +21,7 @@
                         <br>
                         <form class="form-horizontal" role="form">
                             <div class="form-group">
-                                <!--                                <label for="edit-asset-record-member" class="col-md-3 control-label">Member</label>-->
                                 <div class="col-md-12">
-                                    <!--                                    <input type="text" class="form-control" id="edit-asset-record-member">-->
                                     <select class="form-control" id="edit-asset-record-member" name="">
                                         <option value="" selected="selected">Select Member</option>                                      
                                         <c:forEach items="${members}" var="member">          
@@ -46,21 +44,21 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-12" id="assetNotAvailable" style="color: red">
+                            <div class="col-md-12 error" id="assetNotAvailable">
                                 Asset is not available
                             </div>
-                            <div class="col-md-12" id="duplicate" style="color: red">
+                            <div class="col-md-12 error" id="duplicate">
                                 Duplicate Status Entered
                             </div>
-                            <div class="col-md-12" id="memberEmpty" style="color: red">
+                            <div class="col-md-12 error" id="memberEmpty">
                                 You must Select a Member 
                             </div>
-                            <div class="col-md-12" id="memberDoesNotExist" style="color: red">
+                            <div class="col-md-12 error" id="memberDoesNotExist">
                                 Member ID is invalid
                             </div>
-                            <div class="col-md-12" id="validationErrors" style="color: red">
+                            <div class="col-md-12 error" id="validationErrors">
                             </div>
-                            <div class="col-md-12" id="deleteError" style="color: red">
+                            <div class="col-md-12 error" id="deleteError">
                                 The asset is CHECKED OUT
                             </div>
                     </div>

@@ -12,33 +12,22 @@
 <html>
     <head>
         <title>Kobold Camp Asset Management</title>
-        <!-- Bootstrap core CSS -->
-        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Custom styles for this template -->
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+        
+        <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
+        
         <link href="${pageContext.request.contextPath}/css/responsive.css" rel="stylesheet">
 
-        <!-- SWC Icon -->
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/trees.png">
-        <!--        <style>
-                    .footloose {
-                        position: absolute;
-                        bottom: 0;
-                        width: 100%;
-                        /* Set the fixed height of the footer here */
-                        /*                        height: 60px;*/
-                        background-color: #f5f5f5;
-                    }
-                </style>-->
+
     </head>
     <body>
         <div class="container">
             <div class="content">
                 <img src="${pageContext.request.contextPath}/img/trees.png" 
                      alt="tree_logo" 
-                     style="padding-right: 5px" 
-                     height="30" 
-                     width="30" 
+                     class="trees"
                      align="left">
                 <h2>Kobold Camp</h2>
             </div>
@@ -52,7 +41,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <div class="navbar-brand" style="pointer-events: none; background-color: lightslategray; color: white">Equipment Rental</div>
+                        <div class="navbar-brand">Equipment Rental</div>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -108,7 +97,7 @@
                         </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
                             <div class="navbar-header pull-right">
-                                <button class="btn" style="pointer-events: none; background-color: lightslategray; color: white">
+                                <button class="btn principal">
                                     <sec:authentication property="principal.username"/>
                                 </button>
                                 <a href="${pageContext.request.contextPath}/j_spring_security_logout"> 
@@ -123,12 +112,10 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-4"></div>
-                <div class="col-md-4">         
-                    <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
-                        <font color="red">
+                <div class="col-md-4 error">         
+                    <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">                   
                         <h4>username or password is incorrect</h4>
                         <%--<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>.--%>
-                        </font>
                     </c:if>
                 </div>
                 <div class="col-md-4"></div>
@@ -136,7 +123,7 @@
             <h4 class="hidden-xs">Welcome to Kobold Camp Equipment Rental Management System</h4>
             <h4 class="visible-xs">Kobold Camp Equipment Rental</h4> 
             <div class="row">
-                <div class="col-md-6" style="padding: 20px">
+                <div class="col-md-6 campinfo">
                     
                     <h5 class="hidden-xs">Mission Statement</h5>
                     <p class="hidden-xs">Pickled synth single-origin coffee cray brunch messenger bag VHS tacos. Pabst skateboard hella semiotics next level migas cold-pressed echo park, man braid waistcoat yuccie hoodie tofu thundercats. Cliche beard lomo, migas tilde etsy farm-to-table. </p>
@@ -148,8 +135,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <img class="img img-responsive center-block" src="${pageContext.request.contextPath}/img/koboldcamplogo1.png"
-                         height="400" width="400">
+                    <img class="img img-responsive center-block tepee" src="${pageContext.request.contextPath}/img/koboldcamplogo1.png">
                 </div>
             </div>
             <jsp:include page="footer.jsp"/>

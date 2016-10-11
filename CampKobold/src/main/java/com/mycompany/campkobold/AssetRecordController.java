@@ -49,7 +49,7 @@ public class AssetRecordController {
         return rDao.addAssetRecord(assetRecord);
     }
 
-    @RequestMapping(value = "/assetRecords", method = RequestMethod.POST)
+    @RequestMapping(value = "/assetRecordUpdate", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateAssetRecord(@Valid @RequestBody AssetRecord assetRecord, Principal principal) {
         String username = principal.getName();
@@ -57,7 +57,7 @@ public class AssetRecordController {
         rDao.updateAssetRecord(assetRecord, user);
     }
 
-    @RequestMapping(value = "/assetRecord/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/assetRecordDelete/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteAssetRecord(@PathVariable("id") int id) {
         rDao.deleteAssetRecordAndAsset(id);

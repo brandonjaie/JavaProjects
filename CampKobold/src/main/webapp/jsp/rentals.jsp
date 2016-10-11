@@ -12,24 +12,22 @@
 <html>
     <head>
         <title>Kobold Camp Asset Management</title>
-        <!-- Bootstrap core CSS -->
-        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Custom styles for this template -->
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+        
+        <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
+
         <link href="${pageContext.request.contextPath}/css/responsive.css" rel="stylesheet">
 
-        <!-- SWC Icon -->
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/trees.png">
 
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <img src="${pageContext.request.contextPath}/img/trees.png" 
+                <img src="${pageContext.request.contextPath}/img/trees.png"
+                     class="trees"
                      alt="tree_logo" 
-                     style="padding-right: 5px" 
-                     height="30" 
-                     width="30" 
                      align="left">
                 <h2>Kobold Camp</h2>
             </div>
@@ -43,7 +41,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <div class="navbar-brand" style="pointer-events: none; background-color: lightslategray; color: white">Equipment Rental</div>
+                        <div class="navbar-brand">Equipment Rental</div>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -88,7 +86,7 @@
                         </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
                             <div class="signout navbar-form navbar-right">
-                                <button class="btn" style="pointer-events: none; background-color: lightslategray; color: white">
+                                <button class="btn principal">
                                     <sec:authentication property="principal.username"/>
                                 </button>
                                 <a href="${pageContext.request.contextPath}/j_spring_security_logout"> 
@@ -128,8 +126,8 @@
                             </div>
                         </div>
                     </form>
-                    <table class="table table-responsive table-condensed table-striped " style="border: 1px solid lightgray">
-                        <tr style="background-color: lightslategray; color: white">
+                    <table class="table table-responsive table-condensed table-striped ">
+                        <tr>
                             <th>ID</th>
                             <th>Category</th>
                             <th>Brand</th>
@@ -154,8 +152,7 @@
                     </table>
                 </div>
                 <div class="col-md-6">
-                    <img class="img img-responsive center-block" src="${pageContext.request.contextPath}/img/koboldcamplogo1.png"
-                         height="400" width="400">
+                    <img class="img img-responsive center-block tepee" src="${pageContext.request.contextPath}/img/koboldcamplogo1.png">
                 </div>
             </div>
             <jsp:include page="footer.jsp"/>

@@ -63,7 +63,7 @@ $(document).ready(function () {
         $.ajax(
                 {
                     type: 'POST',
-                    url: 'assetRecords',
+                    url: 'assetRecordUpdate',
                     data: JSON.stringify({
                         asset: {assetId: $('#edit-asset-record-asset-id').val()},
                         member: {userId: $('#edit-asset-record-member').val()},
@@ -138,7 +138,7 @@ $(document).ready(function () {
             if (answer === true) {
                 $.ajax({
                     type: 'DELETE',
-                    url: 'assetRecord/' + $('#edit-asset-record-asset-id').val()
+                    url: 'assetRecordDelete/' + $('#edit-asset-record-asset-id').val()
                 }).success(function () {
                     $('#editStatusModal').modal('hide');
                     alert("Asset successfully deleted");
