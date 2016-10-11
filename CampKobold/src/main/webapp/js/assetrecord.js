@@ -15,6 +15,7 @@ $(document).ready(function () {
         var status = $('#edit-asset-record-status').val();
         var notAvailable = $('#assetNotAvailable');
         var duplicate = $('#duplicate');
+        duplicate.hide();
 
         if (status != "") {
             duplicateStatus();
@@ -28,6 +29,14 @@ $(document).ready(function () {
             $('#edit-asset-record-member').prop('disabled', true);
         }
     });
+
+    $('#edit-asset-record-member').change(function (event) {
+        var memberEmpty = $('#memberEmpty');
+        clearErrors();
+        memberEmpty.hide();
+    });
+
+
 //     *refactored - unused
 //    $('#edit-asset-record-member').change(function (event) {
 //        var memberEmpty = $('#memberEmpty');
@@ -134,19 +143,19 @@ $(document).ready(function () {
 //            $('#editStatusModal').modal('hide');
 //            loadRecords();
 //        } else if (status !== '2') {
-            var answer = confirm("Do you really want to delete asset " + $('#edit-asset-record-asset-id').val() + " ?");
-            if (answer === true) {
-                $.ajax({
-                    type: 'DELETE',
-                    url: 'assetRecordDelete/' + $('#edit-asset-record-asset-id').val()
-                }).success(function () {
-                    $('#editStatusModal').modal('hide');
-                    alert("Asset successfully deleted");
-                    loadRecords();
-                }).error(function (data, status) {
-                    alert("error");
-                });
-            }
+        var answer = confirm("Do you really want to delete asset " + $('#edit-asset-record-asset-id').val() + " ?");
+        if (answer === true) {
+            $.ajax({
+                type: 'DELETE',
+                url: 'assetRecordDelete/' + $('#edit-asset-record-asset-id').val()
+            }).success(function () {
+                $('#editStatusModal').modal('hide');
+                alert("Asset successfully deleted");
+                loadRecords();
+            }).error(function (data, status) {
+                alert("error");
+            });
+        }
 //        }
     }
     );
@@ -322,7 +331,7 @@ $('#editStatusModal').on('show.bs.modal', function (event) {
     var element = $(event.relatedTarget);
     var assetId = element.data('asset-id');
     var modal = $(this);
-    
+
     notAvailable.hide();
     memberEmpty.hide();
     memberDoesNotExist.hide();

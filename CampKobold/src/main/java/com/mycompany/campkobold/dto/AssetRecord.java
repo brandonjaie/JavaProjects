@@ -26,7 +26,7 @@ public class AssetRecord {
     @Valid
     @NotNull
     private Status status;
-    @Length(max = 35, message = "Note must be less than 35 characters")
+    @Length(max = 50, message = "Note must be less than 50 characters")
     private String assetNote;
     private Date recordDate;
 
