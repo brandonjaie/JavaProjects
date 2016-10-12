@@ -13,6 +13,8 @@
 <html>
     <head>
         <title>Kobold Camp Asset Management</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
@@ -23,7 +25,7 @@
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/trees.png">
     </head>
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <div class="content">
                 <img src="${pageContext.request.contextPath}/img/trees.png" 
                      alt="tree_logo" 
@@ -75,7 +77,7 @@
                 </div><!-- /.container-fluid -->
             </nav>
         </div>
-        <div class="container">
+        <div class="container-fluid body">
             <h4>Kobold Camp Members</h4>
             <div class="row">
                 <div class="col-md-6">
@@ -128,8 +130,8 @@
                         <br>
                         <h4>Add Member</h4>
                         <div class="form-group">
-                            <label id="username" class="col-sm-3 control-label">Username:</label>
-                            <div class="col-sm-9">
+                            <label id="username" class="col-md-3 control-label">Username:</label>
+                            <div class="col-md-9">
                                 <sf:input type="text" 
                                           class="form-control" 
                                           id="add-username"
@@ -141,8 +143,8 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="add-first-name" class="col-sm-3 control-label">First Name:</label>
-                                <div class="col-sm-9">
+                                <label for="add-first-name" class="col-md-3 control-label">First Name:</label>
+                                <div class="col-md-9">
                                 <sf:input type="text" 
                                           class="form-control" 
                                           id="add-first-name" 
@@ -154,8 +156,8 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="add-last-name" class="col-sm-3 control-label">Last Name:</label>
-                                <div class="col-sm-9">
+                                <label for="add-last-name" class="col-md-3 control-label">Last Name:</label>
+                                <div class="col-md-9">
                                 <sf:input type="text" 
                                           class="form-control" 
                                           id="add-last-name" 
@@ -167,8 +169,8 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="email" class="col-sm-3 control-label">Email:</label>
-                                <div class="col-sm-9">
+                                <label for="email" class="col-md-3 control-label">Email:</label>
+                                <div class="col-md-9">
                                 <sf:input type="text" 
                                           class="form-control" 
                                           id="add-email" 
@@ -179,8 +181,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="phone" class="col-sm-3 control-label">Phone:</label>
-                                <div class="col-sm-9">
+                                <label for="phone" class="col-md-3 control-label">Phone:</label>
+                                <div class="col-md-9">
                                 <sf:input type="text" 
                                           class="form-control" 
                                           id="add-phone" 
@@ -194,8 +196,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-8">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-8">
                                 <label class="checkbox-inline">
                                     <sec:authorize access="hasRole('ROLE_ADMIN')">
                                         <input type="checkbox" 
@@ -218,7 +220,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-8">
+                            <div class="col-md-offset-3 col-md-8">
                                 <button type="submit" id="add-member-button" class="btn btn-primary">Add Member</button>
                             </div>
                         </div>

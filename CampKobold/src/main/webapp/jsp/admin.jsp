@@ -12,6 +12,8 @@
 <html>
     <head>
         <title>Kobold Camp Asset Management</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
        
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
@@ -22,7 +24,7 @@
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/trees.png">
     </head>
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <div class="content">
                 <img src="${pageContext.request.contextPath}/img/trees.png" 
                      alt="tree_logo" 
@@ -74,7 +76,7 @@
                 </div><!-- /.container-fluid -->
             </nav>
         </div>
-        <div class="container">
+        <div class="container-fluid body">
             <h4>Kobold Camp Admin</h4>
             <div class="row">
                 <div class="col-md-6">
@@ -129,8 +131,8 @@
                         <br>
                         <h4>Add Equipment</h4>
                         <div class="form-group">
-                            <label for="add-category" class="col-sm-3 control-label">Category:</label>
-                            <div class="col-sm-5">
+                            <label for="add-category" class="col-md-3 control-label">Category:</label>
+                            <div class="col-md-5">
                                 <select class="form-control" id="add-category">
                                     <option value="" selected>Category</option>
                                     <option value="1">Backpacks</option>
@@ -142,28 +144,28 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="add-brand" class="col-sm-3 control-label">Brand:</label>
-                            <div class="col-sm-7">
+                            <label for="add-brand" class="col-md-3 control-label">Brand:</label>
+                            <div class="col-md-7">
                                 <input type="text" class="form-control" id="add-brand" placeholder="Brand">
                             </div>
 
                         </div>
                         <div class="form-group">
-                            <label for="add-description" class="col-sm-3 control-label">Description:</label>
-                            <div class="col-sm-7">
+                            <label for="add-description" class="col-md-3 control-label">Description:</label>
+                            <div class="col-md-7">
                                 <textarea type="text" class="form-control" id="add-description" placeholder="Description"></textarea>
                             </div>
                         </div>
 
-                        <div class="col-sm-offset-2 col-sm-10">
+                        <div class="col-md-offset-2 col-md-10">
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-8">
+                            <div class="col-md-offset-3 col-md-8">
                                 <button type="submit" class="btn btn-primary" id="add-equipment-button">Add Equipment</button>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-8 error" id="validationErrors">
+                            <div class="col-md-offset-3 col-md-8 error" id="validationErrors">
                             </div>
                         </div>
                     </form>

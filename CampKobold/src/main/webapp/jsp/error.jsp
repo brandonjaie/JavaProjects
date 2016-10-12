@@ -12,6 +12,8 @@
 <html>
     <head>
         <title>Kobold Camp Asset Management</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         
@@ -23,7 +25,7 @@
 
     </head>
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <div class="content">
                 <img src="${pageContext.request.contextPath}/img/trees.png" 
                      alt="tree_logo" 
@@ -109,7 +111,7 @@
                 </div><!-- /.container-fluid -->
             </nav>
         </div>
-        <div class="container">
+        <div class="container-fluid body">
             <div class="row text-center">
                 <div class="col-md-4"></div>
                 <div class="col-md-4 error">         

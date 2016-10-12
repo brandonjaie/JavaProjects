@@ -13,6 +13,8 @@
 <html>
     <head>
         <title>Kobold Camp Asset Management</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
@@ -24,7 +26,7 @@
 
     </head>
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <div class="content">
                 <img src="${pageContext.request.contextPath}/img/trees.png" 
                      alt="tree_logo" 
@@ -77,7 +79,7 @@
             </nav>
         </div>
 
-        <div class="container">
+        <div class="container-fluid body">
             <h4>Kobold Camp Member Profile</h4>
             <div class="row">
                 <div class="col-md-6 pad">
@@ -89,8 +91,8 @@
                              method="POST">
                         <h4>Edit Information</h4>
                         <div class="form-group">
-                            <label for="edit-first-name" class="col-sm-3 control-label">First Name:</label>
-                            <div class="col-sm-7">
+                            <label for="edit-first-name" class="col-md-3 control-label">First Name:</label>
+                            <div class="col-md-8">
                                 <sf:input type="text" 
                                           class="form-control" 
                                           id="edit-first-name" 
@@ -100,8 +102,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="edit-last-name" class="col-sm-3 control-label">Last Name:</label>
-                                <div class="col-sm-7">
+                                <label for="edit-last-name" class="col-md-3 control-label">Last Name:</label>
+                                <div class="col-md-8">
                                 <sf:input type="text" 
                                           class="form-control" 
                                           id="edit-last-name" 
@@ -111,8 +113,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="email" class="col-sm-3 control-label">Email:</label>
-                                <div class="col-sm-7">
+                                <label for="email" class="col-md-3 control-label">Email:</label>
+                                <div class="col-md-8">
                                 <sf:input type="text" 
                                           class="form-control" 
                                           id="edit-email" 
@@ -122,8 +124,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="phone" class="col-sm-3 control-label">Phone:</label>
-                                <div class="col-sm-7">
+                                <label for="phone" class="col-md-3 control-label">Phone:</label>
+                                <div class="col-md-8">
                                 <sf:input type="text" 
                                           class="form-control" 
                                           id="edit-phone" 
@@ -136,8 +138,8 @@
                         <div class="pad2">
                             <h4>Update Password</h4>
                             <div class="form-group">
-                                <label for="new-password" class="col-sm-4 control-label">New Password:</label>
-                                <div class="col-sm-6">
+                                <label for="new-password" class="col-md-4 control-label">New Password:</label>
+                                <div class="col-md-6">
                                     <sf:input type="password" 
                                               class="form-control passClass" 
                                               id="edit-new-password" 
@@ -148,8 +150,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="repeat-password" class="col-sm-4 control-label">Repeat Password:</label>
-                                    <div class="col-sm-6">
+                                    <label for="repeat-password" class="col-md-4 control-label">Repeat Password:</label>
+                                    <div class="col-md-6">
                                     <sf:input type="password" 
                                               class="form-control passClass" 
                                               id="edit-repeat-password" 
@@ -162,14 +164,14 @@
                                 </div>
 
                             </div>
-                            <div class="col-sm-offset-4" id="incorrectMessage">
+                            <div class="col-md-offset-4" id="incorrectMessage">
                                 <b>Passwords must match</b>
                             </div>
-                            <div class="col-sm-offset-4" id="correctMessage">
+                            <div class="col-md-offset-4" id="correctMessage">
                                 <b>Passwords match</b>
                             </div>
                         </div>
-                        <div class="col-sm-offset-3 col-sm-8">
+                        <div class="col-md-offset-3 col-md-8">
                             <button type="submit" id="edit-user-profile-button" class="btn btn-primary">Update Information</button>
                         </div>
                     </sf:form>

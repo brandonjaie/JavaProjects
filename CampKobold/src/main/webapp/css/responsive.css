@@ -30,7 +30,7 @@ and open the template in the editor.
     }
     .navbar-nav {
         float: none!important;
-        margin-top: 7.5px;
+        margin: 7.5px -15px;
     }
     .navbar-nav>li {
         float: none;
@@ -44,5 +44,8 @@ and open the template in the editor.
     }
 }
 
-
+.body {
+    margin-left: 1% !important;
+    margin-right: 1% !important;
+}
 

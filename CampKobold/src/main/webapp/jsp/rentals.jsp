@@ -12,6 +12,8 @@
 <html>
     <head>
         <title>Kobold Camp Asset Management</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         
@@ -23,7 +25,7 @@
 
     </head>
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <div class="content">
                 <img src="${pageContext.request.contextPath}/img/trees.png"
                      class="trees"
@@ -99,7 +101,7 @@
             </nav>
         </div>
 
-        <div class="container">
+        <div class="container-fluid body">
             <h4>Kobold Camp Rental Equipment Available</h4>
             <div class="row">
                 <div class="col-md-6">

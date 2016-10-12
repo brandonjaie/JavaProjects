@@ -12,6 +12,8 @@
 <html>
     <head>
         <title>Kobold Camp Asset Management</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         
@@ -22,7 +24,7 @@
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/trees.png">
     </head>
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <div class="content">
                 <img src="${pageContext.request.contextPath}/img/trees.png" 
                      alt="tree_logo" 
@@ -75,7 +77,7 @@
             </nav>
         </div>
 
-        <div class="container" id="assetRecordsDiv">
+        <div class="container-fluid body" id="assetRecordsDiv">
             <h4>Kobold Camp Assets</h4> 
             <div class="row">
                 <div class="col-md-12">
