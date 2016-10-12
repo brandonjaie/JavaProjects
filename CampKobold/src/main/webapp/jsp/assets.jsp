@@ -19,8 +19,6 @@
         
         <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
 
-        <link href="${pageContext.request.contextPath}/css/responsive.css" rel="stylesheet">
-
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/trees.png">
     </head>
     <body>
@@ -135,7 +133,7 @@
                             <th class="hidden-xs">Description</th>
                             <th>Status</th>
                             <th>Member</th>
-                            <th class="tableHeading">History</th>
+                            <th class="hidden-xs tableHeading">History</th>
                             <th class="tableHeading">Check In/Out</th>
                         </tr>
                         <tbody id="assetRows">

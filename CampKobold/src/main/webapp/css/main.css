@@ -31,6 +31,13 @@ and open the template in the editor.
     color: #FFFFFF;
 }
 
+/*MAIN CONTENT OF EVERY PAGE*/
+
+.body {
+    margin-left: 1% !important;
+    margin-right: 1% !important;
+}
+
 /*TABLES*/
 
 .table {
@@ -84,7 +91,7 @@ tr th {
 /*FOOTER*/
 
 .footer {
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 /* changes google's autocomplete form input

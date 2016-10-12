@@ -19,8 +19,6 @@
         
         <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
 
-        <link href="${pageContext.request.contextPath}/css/responsive.css" rel="stylesheet">
-
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/trees.png">
 
     </head>
@@ -102,7 +100,8 @@
         </div>
 
         <div class="container-fluid body">
-            <h4>Kobold Camp Rental Equipment Available</h4>
+            <h4 class="hidden-xs">Kobold Camp Rental Equipment Available</h4>
+            <h4 class="visible-xs">Kobold Camp Rentals</h4>
             <div class="row">
                 <div class="col-md-6">
                     <form class="form-horizontal">

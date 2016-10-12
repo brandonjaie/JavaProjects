@@ -14,8 +14,10 @@ $(document).ready(function () {
         $('#edit-asset-record-member').prop('disabled', true);
         var status = $('#edit-asset-record-status').val();
         var notAvailable = $('#assetNotAvailable');
+        var memberEmpty = $('#memberEmpty')
         var duplicate = $('#duplicate');
         duplicate.hide();
+        memberEmpty.hide();
 
         if (status != "") {
             duplicateStatus();
@@ -300,7 +302,7 @@ function fillRecordsTable(data, status) {
                 .append($("<td class='hidden-xs'>").text(record.asset.description))
                 .append($('<td>').text(record.status.status))
                 .append($('<td>').text(member))
-                .append($('<td style="text-align: center">')
+                .append($('<td class="hidden-xs" style="text-align: center">')
                         .append($('<a>')
                                 .attr({'href': 'assets/' + record.asset.assetId}).attr({'target': '_self'}).text('View')
                                 )

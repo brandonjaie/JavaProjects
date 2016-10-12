@@ -24,8 +24,6 @@
 
         <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
 
-        <link href="${pageContext.request.contextPath}/css/responsive.css" rel="stylesheet">
-
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/trees.png">
 
     </head>
