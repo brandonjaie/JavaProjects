@@ -71,6 +71,12 @@ tr th {
     width: 400px;
 }
 
+/*select{
+	background: url('img/down-arrow.png') no-repeat right 12px;
+	-moz-appearance: none; 
+	-webkit-appearance: none; 
+	appearance: none;
+}*/
 
 /*ERRORS - MODAL, ADMIN, PROFILE PAGES*/
 

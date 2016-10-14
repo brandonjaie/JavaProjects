@@ -19,16 +19,17 @@ $(document).ready(function () {
         duplicate.hide();
         memberEmpty.hide();
 
-        if (status != "") {
+        if (status != "" && status != "2") {
             duplicateStatus();
         }
-        if (status == 2) {
-            $('#edit-asset-record-member').prop('disabled', false);
+        if (status == "2") {
             assetAvailability();
         } else {
             notAvailable.hide();
             $('#edit-button').prop('disabled', false);
             $('#edit-asset-record-member').prop('disabled', true);
+            document.getElementById("edit-asset-record-member").style.borderColor = "red";
+            document.getElementById("edit-asset-record-member").style.background = "#FFD9D9";
         }
     });
 
@@ -187,13 +188,17 @@ function assetAvailability() {
             notAvailable.show();
             $('#edit-button').prop('disabled', true);
             $('#edit-asset-record-member').prop('disabled', true);
+            document.getElementById("edit-asset-record-member").style.borderColor = "red";
+            document.getElementById("edit-asset-record-member").style.background = "#FFD9D9";
         } else {
             notAvailable.hide();
             $('#edit-button').prop('disabled', false);
             $('#edit-asset-record-member').prop('disabled', false);
+            document.getElementById("edit-asset-record-member").style.borderColor = "green";
+            document.getElementById("edit-asset-record-member").style.background = "#CEFFCE";
         }
     }).error(function (data, status) {
-        alert("Invalid input. Please try again");
+//        alert("Invalid input. Please try again");
     });
 }
 //** unused: refactored to add a select dropdown with members passed in
@@ -252,12 +257,14 @@ function duplicateStatus() {
             duplicate.show();
             $('#edit-button').prop('disabled', true);
             $('#edit-asset-record-member').prop('disabled', true);
+            document.getElementById("edit-asset-record-member").style.borderColor = "red";
+            document.getElementById("edit-asset-record-member").style.background = "#FFD9D9";
         } else {
             duplicate.hide();
             $('#edit-button').prop('disabled', false);
         }
     }).error(function (data, status) {
-        alert("Invalid input. Please try again");
+//        alert("Invalid input. Please try again");
     });
 }
 
@@ -325,6 +332,8 @@ function fillRecordsTable(data, status) {
 $('#editStatusModal').on('show.bs.modal', function (event) {
     $('#edit-button').prop('disabled', true);
     $('#edit-asset-record-member').prop('disabled', true);
+    document.getElementById("edit-asset-record-member").style.borderColor = "red";
+    document.getElementById("edit-asset-record-member").style.background = "#FFD9D9";
     var duplicate = $('#duplicate');
     var notAvailable = $('#assetNotAvailable');
     var memberEmpty = $('#memberEmpty');
