@@ -13,7 +13,14 @@
                     <span aria-hidden="true">&times</span>
                     <span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title">Asset ID <span id="edit-header-asset-record-asset-id"></span></h4>
+                <h4 class="hidden-xs modal-title">Asset ID <span id="edit-header-asset-record-asset-id"></span></h4>
+                <h4 class="visible-xs modal-title text-center">
+                    <button class="btn principal btn-block">                    
+                        <span id="edit-header2-asset-record-asset-id"></span> -
+                        <span id="edit-header-asset-record-brand"></span> -
+                        <span id="edit-header-asset-record-description"></span>
+                    </button>
+                </h4>
             </div>
             <div class="modal-body">
                 <div class="row">

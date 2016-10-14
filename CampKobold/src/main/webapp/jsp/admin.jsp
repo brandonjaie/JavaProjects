@@ -94,13 +94,13 @@
                             </div>
                         </div>
                     </form>
-                    <table class="table table-responsive table-striped">
+                    <table class="table table-responsive table-condensed table-striped">
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Type</th>
-                            <th>Remove</th>
-                            <th>Password</th>
+                            <th class="tableHeading">Remove</th>
+                            <th class="tableHeading">Password</th>
                         </tr>
                         <tbody id="adminRows">
                             <c:forEach var="user" items="${users}">

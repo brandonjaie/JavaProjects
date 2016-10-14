@@ -310,6 +310,7 @@ function fillRecordsTable(data, status) {
                 .append($('<td style="text-align: center">')
                         .append($('<a>')
                                 .attr({
+                                    'href': '#',
                                     'data-asset-id': record.asset.assetId,
                                     'data-toggle': 'modal',
                                     'data-target': '#editStatusModal'
@@ -349,6 +350,9 @@ $('#editStatusModal').on('show.bs.modal', function (event) {
         memberDoesNotExist.hide();
         modal.find('#edit-asset-record-asset-id').val(record.asset.assetId);
         modal.find('#edit-header-asset-record-asset-id').text(record.asset.assetId);
+        modal.find('#edit-header2-asset-record-asset-id').text(record.asset.assetId);
+        modal.find('#edit-header-asset-record-brand').text(record.asset.brand);
+        modal.find('#edit-header-asset-record-description').text(record.asset.description);
         modal.find('#edit-asset-record-member').val(record.member.userId);
         modal.find('#edit-asset-record-employee').val(record.employee.userId);
         modal.find('#edit-asset-record-status').val(record.status.statusId);

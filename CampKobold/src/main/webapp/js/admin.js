@@ -81,10 +81,10 @@ function fillAdminTable(data, status) {
                                 .attr({'onclick': 'deleteUser(' + userUserProfile.userId + ')'}).text('Delete')
                                 ) 
                         ) 
-                .append($('<td>')
+                .append($('<td style="text-align: center">')
                         .append($('<a>')
                                 .attr({
-                                    'onclick': 'resetPassword(' + userUserProfile.userId + ')'}).text('Reset Password')
+                                    'onclick': 'resetPassword(' + userUserProfile.userId + ')'}).text('Reset')
                                 ) 
                         ) 
                 ); 
