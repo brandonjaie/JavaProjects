@@ -13,14 +13,12 @@
 <html>
     <head>
         <title>Kobold Camp Asset Management</title>
-        
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
         <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
-
-        <link href="${pageContext.request.contextPath}/css/responsive.css" rel="stylesheet">
 
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/trees.png">
 
@@ -66,14 +64,16 @@
                                 <li class="active"><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
                                 </sec:authorize>
                         </ul>
-                        <div class="signout navbar-form navbar-right">
-                            <button class="btn principal">
-                                <sec:authentication property="principal.username"/>
-                            </button>
-                            <a href="${pageContext.request.contextPath}/j_spring_security_logout"> 
-                                <button type="submit" id="logOut" class="btn btn-danger gradient">Log Out</button>
-                            </a>
-                        </div>
+                        <sec:authorize access="isAuthenticated()">
+                            <div class="signout navbar-form navbar-right">
+                                <button class="btn principal">
+                                    <sec:authentication property="principal.username"/>
+                                </button>
+                                <a href="${pageContext.request.contextPath}/j_spring_security_logout"> 
+                                    <button type="submit" id="logOut" class="btn btn-danger gradient">Log Out</button>
+                                </a>
+                            </div>
+                        </sec:authorize>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>

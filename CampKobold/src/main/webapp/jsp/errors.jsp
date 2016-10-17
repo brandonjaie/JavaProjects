@@ -1,13 +1,9 @@
 <%-- 
-    Document   : assetHistoryNoAjax
-    Created on : May 25, 2016, 11:27:20 AM
+    Document   : error-500
+    Created on : Oct 14, 2016, 3:30:26 PM
     Author     : Brandon
 --%>
-<%-- 
-    Document   : Assets
-    Created on : May 10, 2016, 4:37:36 PM
-    Author     : Brandon
---%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -53,10 +49,10 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">                   
                             <!--render navbar links based on roles-->
-                            <li><a href="${pageContext.request.contextPath}/home">Home</a></li>
+                            <li class="active"><a href="${pageContext.request.contextPath}/home">Home</a></li>
                             <li><a href="${pageContext.request.contextPath}/rentals">Rentals</a></li>
                                 <sec:authorize access="hasRole('ROLE_EMPLOYEE')">
-                                <li class="active"><a href="${pageContext.request.contextPath}/assets">Assets</a></li>
+                                <li><a href="${pageContext.request.contextPath}/assets">Assets</a></li>
                                 </sec:authorize>
                                 <sec:authorize access="hasRole('ROLE_EMPLOYEE')">
                                 <li><a href="${pageContext.request.contextPath}/members">Members</a></li>
@@ -67,9 +63,41 @@
                                 <sec:authorize access="hasRole('ROLE_USER')">
                                 <li><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
                                 </sec:authorize>
+                                <%-- <li class="pull-right">
+                                     <div style="margin: 15px 0px 0px 75px">         
+                                         <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
+                                             <font color="red">
+                                             username or password is incorrect
+                                <%--<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>.
+                                </font>
+                            </c:if>
+                        </div>
+                    </li>--%>
                         </ul>
+
+                        <sec:authorize access="isAnonymous()">
+                            <form id="logInForm" class="signin navbar-form navbar-right" 
+                                  method="post" 
+                                  action="j_spring_security_check">
+                                <div class="form-group">
+                                    <input type="text" 
+                                           id="username_or_email" 
+                                           name="j_username" 
+                                           class="form-control" 
+                                           placeholder="username">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" 
+                                           id="password" 
+                                           name="j_password" 
+                                           class="form-control" 
+                                           placeholder="password">
+                                </div>
+                                <button  id="logIn" name="commit" type="submit" class="btn btn-success">Login</button>
+                            </form>
+                        </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
-                            <div class="signout navbar-form navbar-right">
+                            <div class="navbar-header pull-right">
                                 <button class="btn principal">
                                     <sec:authentication property="principal.username"/>
                                 </button>
@@ -82,64 +110,40 @@
                 </div><!-- /.container-fluid -->
             </nav>
         </div>
-
         <div class="container-fluid body">
-            <h4>Kobold Camp Assets</h4> 
-            <div class="row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-10 pad">
-                    <table class="table table-responsive table-condensed">
-                        <tr>
-                            <th width="5%">ID</th>
-                            <th width="5%">Category</th>
-                            <th width="5%">Description</th>
-                            <th width="5%">Current Status</th>
-                        </tr>
-                        <tbody id="historyRows1">
-                            <c:if test="${not empty(asset)}">
-                                <tr> 
-                                    <td>${asset.asset.assetId}</td>
-                                    <td>${asset.asset.category.name}</td>
-                                    <td>${asset.asset.description}</td>
-                                    <td>${asset.status.status}</td>
-                                </tr>
-                            </c:if>
-                        </tbody>
-                    </table>
+            <div class="row text-center">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 error">
+                    <h4>${errorMessage} Please Login</h4>
+                    <%--<c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">                   
+                        <h4>${errorMessage} - Please Login</h4>
+                        <%--<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>.
+                    </c:if>--%>
                 </div>
-                <div class="col-sm-1"></div>
+                <div class="col-md-4"></div>
             </div>
-            <h4>Rental History</h4> 
+            <h4 class="hidden-xs">Welcome to Kobold Camp Equipment Rental Management System</h4>
+            <h4 class="visible-xs">Kobold Camp Equipment Rental</h4> 
             <div class="row">
+                <div class="col-md-6 campinfo">
 
-                <div class="col-sm-12 pad">
-                    <table class="table table-responsive table-condensed table-striped">
-                        <tr>
-                            <th width="10%">Date</th>
-                            <th width="10%">Employee</th>
-                            <th width="10%">Status</th>
-                            <th width="10%">Member</th>
-                            <th width="10%">Notes</th>
-                        </tr>
-                        <tbody id="historyRows2">
-                            <c:forEach var="rec" items="${records}">
-                                <tr> 
-                                    <td>${rec.recordDate}</td>
-                                    <td>${rec.employee.firstName} ${rec.employee.lastName}</td>
-                                    <td>${rec.status.status}</td>
-                                    <td>${rec.member.firstName} ${rec.member.lastName}</td>
-                                    <td>${rec.assetNote}</td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
+                    <h5 class="hidden-xs">Mission Statement</h5>
+                    <p class="hidden-xs">Pickled synth single-origin coffee cray brunch messenger bag VHS tacos. Pabst skateboard hella semiotics next level migas cold-pressed echo park, man braid waistcoat yuccie hoodie tofu thundercats. Cliche beard lomo, migas tilde etsy farm-to-table. </p>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h5>Camp Info</h5>
+                            <p>Four dollar toast mlkshk gentrify 90's echo park, DIY messenger bag scenester offal williamsburg. Single-origin coffee hammock polaroid lumbersexual gochujang distillery messenger bag hashtag gentrify food truck gluten-free pop-up, butcher affogato. Hoodie hashtag venmo, put a bird on it narwhal mumblecore flexitarian. Pitchfork bitters church-key keytar, cornhole tousled biodiesel 3 wolf moon tumblr marfa selfies jean shorts. Irony meh try-hard, YOLO cardigan plaid gastropub sustainable jean shorts intelligentsia deep v cold-pressed chicharrones affogato.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img class="img img-responsive center-block tepee" src="${pageContext.request.contextPath}/img/koboldcamplogo1.png">
                 </div>
             </div>
             <jsp:include page="footer.jsp"/>
-        </div>
+        </div> 
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/assetRecord.js"></script>
     </body>
 </html>
