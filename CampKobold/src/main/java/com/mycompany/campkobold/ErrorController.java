@@ -28,10 +28,7 @@ class ErrorController {
             HttpServletResponse response,
             Model model) {
         // #3 - retrieve some useful information from the request
-        try {
-            Integer statusCode
-                    = (Integer) request.getAttribute("javax.servlet.error.status_code");
-        } catch (NullPointerException ex) {
+
             Integer statusCode
                     = (Integer) request.getAttribute("javax.servlet.error.status_code");
 
@@ -52,7 +49,7 @@ class ErrorController {
             // #5 - put the message in the model object
             model.addAttribute("errorMessage", message);
 
-        }
+        
 
         return "errors";
 

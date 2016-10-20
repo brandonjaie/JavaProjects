@@ -18,6 +18,21 @@
         <servlet-name>spring-dispatcher</servlet-name>            
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     </servlet>
+    
+    <error-page>
+        <error-code>400</error-code>
+        <location>/errors</location>
+    </error-page>
+    
+    <error-page>
+        <error-code>500</error-code>
+        <location>/errors</location>
+    </error-page> 
+    
+    <error-page>
+        <error-code>404</error-code>
+        <location>/errors</location>
+    </error-page>
   
     <servlet-mapping>
         <servlet-name>spring-dispatcher</servlet-name>
@@ -83,14 +98,19 @@
             classpath:spring-persistence.xml
         </param-value>
     </context-param>
+    
+    <session-config>
+        <session-timeout>2</session-timeout>
+<!--        <tracking-mode>COOKIE</tracking-mode>-->
+    </session-config>
+    
     <listener>
         <listener-class>
             org.springframework.web.context.ContextLoaderListener
         </listener-class>
+<!--        <listener-class>
+            org.springframework.security.web.session.HttpSessionEventPublisher
+        </listener-class>-->
     </listener>
-    
-    <error-page>
-        <location>/errors</location>
-    </error-page> 
   
 </web-app>
