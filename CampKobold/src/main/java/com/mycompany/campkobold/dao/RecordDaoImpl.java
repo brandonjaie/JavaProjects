@@ -116,7 +116,8 @@ public class RecordDaoImpl implements RecordDao {
             + "where record_id = "
             + "(select max(record_id) "
             + "from asset_records b "
-            + "where a.asset_id = b.asset_id)";
+            + "where a.asset_id = b.asset_id) "
+            + "order by a.status_id ASC";
 
     private static final String SQL_SELECT_ASSET_RECORD_CURRENT_STATUS_BY_ASSET_ID
             = "select arec.* "
@@ -160,11 +161,11 @@ public class RecordDaoImpl implements RecordDao {
         }
 
         record.setEmployee(user);
-
+//        record.setAssetNote("");
         if (record.getStatus().getStatusId() == 2) {
 
             record.setMember(record.getMember());
-            record.setAssetNote("");
+            
 
             jdbcTemplate.update(SQL_INSERT_ASSET_RECORD,
                     record.getAsset().getAssetId(),

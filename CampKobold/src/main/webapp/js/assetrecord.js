@@ -362,10 +362,10 @@ $('#editStatusModal').on('show.bs.modal', function (event) {
         modal.find('#edit-header2-asset-record-asset-id').text(record.asset.assetId);
         modal.find('#edit-header-asset-record-brand').text(record.asset.brand);
         modal.find('#edit-header-asset-record-description').text(record.asset.description);
-        modal.find('#edit-asset-record-member').val(record.member.userId);
         modal.find('#edit-asset-record-employee').val(record.employee.userId);
         modal.find('#edit-asset-record-status').val(record.status.statusId);
-        modal.find('#edit-asset-record-note').val(record.assetNote);
+//        modal.find('#edit-asset-record-note').val(record.assetNote);
+        modal.find('#edit-asset-record-member').val(record.member.userId);
 
     });
 });
