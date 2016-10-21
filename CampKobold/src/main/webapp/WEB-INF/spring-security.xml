@@ -34,6 +34,15 @@
                     authentication-failure-url="/error?login_error=1"/>
         <!-- #3d - Go back to home page when user logs out -->
         <logout logout-success-url="/home"/>
+        
+<!--        <session-management>
+            <concurrency-control max-sessions="1" />
+        </session-management>
+        
+        <session-management>
+            <concurrency-control expired-url="/errors" />
+        </session-management>
+        -->
         <!-- #3e -->
 
         <intercept-url pattern="/members" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
@@ -45,7 +54,7 @@
          
         <intercept-url pattern="/asset" access="hasAnyRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/assets/{id}" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
-        <intercept-url pattern="/assets/" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>       
+        <intercept-url pattern="/assets" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>       
         <intercept-url pattern="search/assets" access="permitAll"/>
                
         <!--        *delete asset and asset record = DELETE | access = ROLE_ADMIN only-->

@@ -329,6 +329,8 @@ public class RecordDaoImpl implements RecordDao {
                 + "and arec.record_id = ( SELECT MAX(record_id) from asset_records b where arec.asset_id = b.asset_id) "
                 + "left outer join user_profiles up on arec.member_id = up.user_id "
                 + "where ");
+        
+        String order = "order by arec.status_id ASC";
 
         int numParams = criteria.size();
 
@@ -352,7 +354,7 @@ public class RecordDaoImpl implements RecordDao {
 
             sQuery.append(currentKey.getAlias()).append(currentKey);
 
-            sQuery.append(" = ? ");
+            sQuery.append(" = ? " + order);
 
             paramVals[paramPosition] = criteria.get(currentKey);
 
