@@ -131,7 +131,12 @@ public class RecordDaoImpl implements RecordDao {
 //            + "where arec.record_id = ( SELECT MAX(record_id) from asset_records b where arec.asset_id = b.asset_id) "
 //            + "and (arec.asset_id) "
 //            + "and arec.status_id = ?";
-
+    
+    private static final String SQL_SELECT_ASSET_RECORDS_BY_CURRENT_DATE
+            = "select * "
+            + "from asset_records "
+            + "where record_date = current_date";
+    
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public AssetRecord addAssetRecord(AssetRecord record) {
@@ -165,7 +170,6 @@ public class RecordDaoImpl implements RecordDao {
         if (record.getStatus().getStatusId() == 2) {
 
             record.setMember(record.getMember());
-            
 
             jdbcTemplate.update(SQL_INSERT_ASSET_RECORD,
                     record.getAsset().getAssetId(),
@@ -198,8 +202,8 @@ public class RecordDaoImpl implements RecordDao {
 //            if (record.getStatus().getStatusId() == 2) {
 //                checkedOut = true;
 //            } else {
-                jdbcTemplate.update(SQL_DELETE_ASSET_RECORD, assetId);
-                jdbcTemplate.update(SQL_DELETE_ASSET, assetId);
+        jdbcTemplate.update(SQL_DELETE_ASSET_RECORD, assetId);
+        jdbcTemplate.update(SQL_DELETE_ASSET, assetId);
 //            }
 //        }
 //
@@ -250,7 +254,7 @@ public class RecordDaoImpl implements RecordDao {
 //
 //        return memberExists;
 //    }
-
+    
     @Override
     public boolean checkDuplicateStatus(int assetId, int statusId) {
 
@@ -315,11 +319,15 @@ public class RecordDaoImpl implements RecordDao {
         return jdbcTemplate.query(SQL_SELECT_ASSET_RECORD_CURRENT_STATUS_BY_ASSET_ID, new RecordMapper(), assetId);
     }
 
+    @Override
+    public List<AssetRecord> getAssetRecordsByCurrentDate() {
+        return jdbcTemplate.query(SQL_SELECT_ASSET_RECORDS_BY_CURRENT_DATE, new RecordMapper());
+    }
+
 //    @Override // Not used but may find this useful for other functionality
 //    public List<AssetRecord> getCurrentAssetRecordByStatusId(int statusId) {
 //        return jdbcTemplate.query(SQL_SELECT_ASSET_RECORD_CURRENT_STATUS_BY_STATUS_ID, new RecordMapper(), statusId);
 //    }
-
     @Override
     public List<AssetRecord> searchAssetRecords(Map<SearchTerm, String> criteria) {
 
@@ -329,8 +337,8 @@ public class RecordDaoImpl implements RecordDao {
                 + "and arec.record_id = ( SELECT MAX(record_id) from asset_records b where arec.asset_id = b.asset_id) "
                 + "left outer join user_profiles up on arec.member_id = up.user_id "
                 + "where ");
-        
-        String order = "order by arec.status_id ASC";
+
+//        String order = "order by arec.status_id ASC";
 
         int numParams = criteria.size();
 
@@ -354,7 +362,48 @@ public class RecordDaoImpl implements RecordDao {
 
             sQuery.append(currentKey.getAlias()).append(currentKey);
 
-            sQuery.append(" = ? " + order);
+            sQuery.append(" = ? " /*+ order*/);
+
+            paramVals[paramPosition] = criteria.get(currentKey);
+
+            paramPosition++;
+
+        }
+
+        return jdbcTemplate.query(sQuery.toString(), new RecordMapper(), paramVals);
+
+    }
+
+    @Override
+    public List<AssetRecord> searchRecords(Map<SearchTerm, String> criteria) {
+
+        StringBuilder sQuery = new StringBuilder("select arec.* "
+                + "from asset_records arec "
+                + "where ");
+
+        int numParams = criteria.size();
+
+        int paramPosition = 0;
+
+        String[] paramVals = new String[numParams];
+
+        Set<SearchTerm> keySet = criteria.keySet();
+
+        Iterator<SearchTerm> iter = keySet.iterator();
+
+        while (iter.hasNext()) {
+
+            SearchTerm currentKey = iter.next();
+
+            if (paramPosition > 0) {
+
+                sQuery.append(" and ");
+
+            }
+
+            sQuery.append(currentKey.getAlias()).append(currentKey);
+
+            sQuery.append(" = ? ");
 
             paramVals[paramPosition] = criteria.get(currentKey);
 

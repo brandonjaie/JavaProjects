@@ -22,6 +22,7 @@ public enum SearchTerm {
     DESCRIPTION("a"),
     MEMBER_ID("arec"),
     EMPLOYEE_ID("arec"),
+    RECORD_DATE("arec"),
     FIRST_NAME("up"),
     LAST_NAME("up"),
     PHONE("up"),

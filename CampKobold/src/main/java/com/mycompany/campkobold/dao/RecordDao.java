@@ -50,7 +50,11 @@ public interface RecordDao {
     public List<AssetRecord> getCurrentAssetRecordByAssetId(int assetId);
     
 //    public List<AssetRecord> getCurrentAssetRecordByStatusId(int statusId);
+    
+    public List<AssetRecord> getAssetRecordsByCurrentDate();
 
     public List<AssetRecord> searchAssetRecords(Map<SearchTerm, String> criteria);
+    
+    public List<AssetRecord> searchRecords(Map<SearchTerm, String> criteria);
 
 }

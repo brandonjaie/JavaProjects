@@ -173,6 +173,73 @@
                 </div>
 
             </div>
+        </div>
+        <hr>
+        <div class="container-fluid body" id="assetRecordsDiv">
+            <h4>Kobold Camp Records</h4> 
+            <div class="row">
+                <div class="col-md-12">
+
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <label></label>
+                                <input id="search-date" type="text" class="form-control" placeholder="Date YYYY-MM-DD">
+                            </div>
+                            <div class="col-md-2">
+                                <label></label>
+                                <select id="search-employee-id" class="form-control">
+                                    <option value="" selected="selected">Employee</option> 
+                                    <c:forEach items="${employees}" var="employee">          
+                                        <option value="${employee.userId}">
+                                            ${employee.userId} - ${employee.firstName} ${employee.lastName}</option>
+                                        </c:forEach>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label></label>
+                                <select id="search-members-id" class="form-control">
+                                    <option value="" selected="selected">Member</option> 
+                                    <c:forEach items="${members}" var="member">          
+                                        <option value="${member.userId}">
+                                            ${member.userId} - ${member.firstName} ${member.lastName}</option>
+                                        </c:forEach>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <br>
+                                <button type="submit" id="search-associates-button" class="btn btn-primary">Search</button>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-2">
+                                <br>
+                                <button type="submit" id="search-todays-records" class="btn btn-info">Today's Records</button>
+                            </div>
+                            <!--                            <div class="col-md-2">
+                                                        </div>-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-responsive table-condensed table-striped">
+                        <tr>
+                            <th>Date</th>
+                            <th class="tableHeading">Associate</th>
+                            <th class="tableHeading">Status</th>
+                            <th class="tableHeading">Asset Description</th>
+                        </tr>
+                        <tbody id="todaysRecords">
+
+                        </tbody>
+                        <tbody id="records">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <jsp:include page="footer.jsp"/>
         </div>
         <!-- Placed at the end of the document so the pages load faster -->

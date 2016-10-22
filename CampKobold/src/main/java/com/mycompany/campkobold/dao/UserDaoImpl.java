@@ -208,6 +208,23 @@ public class UserDaoImpl implements UserDao {
 
         return mList;
     }
+    
+    @Override
+    public List<UserUserProfile> getAllEmployees() {
+
+        List<UserUserProfile> uList = getAllUserUserProfiles();
+        List<UserUserProfile> eList = new ArrayList<>();
+
+        for (UserUserProfile user : uList) {
+            Authority authority = xDao.getHighestAuthorityByUserName(user.getUserName());
+            if (user.getUserName().equals(authority.getUserName()) && authority.getAuthority().equals("ROLE_ADMIN") 
+                    || user.getUserName().equals(authority.getUserName()) && authority.getAuthority().equals("ROLE_EMPLOYEE")) {
+                eList.add(user);
+            }
+        }
+
+        return eList;
+    }
 
     @Override
     public UserUserProfile getUserUserProfileByIdB(int userId) {

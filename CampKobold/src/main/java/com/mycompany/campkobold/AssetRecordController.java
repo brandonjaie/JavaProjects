@@ -5,7 +5,6 @@
  */
 package com.mycompany.campkobold;
 
-
 import com.mycompany.campkobold.dao.RecordDao;
 import com.mycompany.campkobold.dao.SearchTerm;
 import com.mycompany.campkobold.dao.UserDao;
@@ -80,7 +79,6 @@ public class AssetRecordController {
 //
 //        return assetRecord;
 //    }
-
     @RequestMapping(value = "/checkDuplicateStatus", method = RequestMethod.POST)
     @ResponseBody
     public AssetRecord checkDuplicateStatus(@RequestBody AssetRecord assetRecord) {
@@ -106,6 +104,13 @@ public class AssetRecordController {
     @ResponseBody
     public List<AssetRecord> getAssetRecordsByCurrentStatus() {
         List<AssetRecord> rList = rDao.getCurrentAssetRecords();
+        return rList;
+    }
+
+    @RequestMapping(value = "/assetRecordsCurrentDate", method = RequestMethod.GET)
+    @ResponseBody
+    public List<AssetRecord> getAssetRecordsByCurrentDate() {
+        List<AssetRecord> rList = rDao.getAssetRecordsByCurrentDate();
         return rList;
     }
 
@@ -138,6 +143,28 @@ public class AssetRecordController {
         }
 
         return rDao.searchAssetRecords(criteriaMap);
+    }
+
+    @RequestMapping(value = "search/records", method = RequestMethod.POST)
+    @ResponseBody
+    public List<AssetRecord> searchRecords(@RequestBody Map<String, String> searchMap) {
+        Map<SearchTerm, String> criteriaMap = new HashMap<>();
+
+        String currentTerm = searchMap.get("recordDate");
+        if (currentTerm != null && !currentTerm.isEmpty()) {
+            criteriaMap.put(SearchTerm.RECORD_DATE, currentTerm);
+        }
+        currentTerm = searchMap.get("employeeId");
+
+        if (currentTerm != null && !currentTerm.isEmpty()) {
+            criteriaMap.put(SearchTerm.EMPLOYEE_ID, currentTerm);
+        }
+        currentTerm = searchMap.get("memberId");
+        if (!currentTerm.isEmpty()) {
+            criteriaMap.put(SearchTerm.MEMBER_ID, currentTerm);
+        }
+
+        return rDao.searchRecords(criteriaMap);
     }
 
 }

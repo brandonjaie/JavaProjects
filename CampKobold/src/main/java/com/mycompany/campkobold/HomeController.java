@@ -73,7 +73,11 @@ public class HomeController {
 
     @RequestMapping(value = {"/admin"}, method = RequestMethod.GET)
     public String displayAdminPage(Model model) {
-
+        List<UserUserProfile> employees = uDao.getAllEmployees();
+        model.addAttribute("employees", employees);
+        
+        List<UserUserProfile> members = uDao.getAllMembers();
+        model.addAttribute("members", members);
         return "admin";
     }
 

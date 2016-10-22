@@ -75,6 +75,8 @@
         <intercept-url pattern="/checkUserNameAvailability" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
         <intercept-url pattern="/resetPassword/{id}" access="hasAnyRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/updatePassword" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE', 'ROLE_USER')"/>
+        <intercept-url pattern="/assetRecordsCurrentDate" access="hasAnyRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="search/records" access="hasAnyRole('ROLE_ADMIN')"/>
         <intercept-url pattern="search/users" access="hasAnyRole('ROLE_ADMIN')"/>
         <intercept-url pattern="search/members" access="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')"/>
         

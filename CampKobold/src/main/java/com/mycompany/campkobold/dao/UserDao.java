@@ -24,7 +24,9 @@ public interface UserDao {
     public List<UserUserProfile> getAllUserUserProfiles();
     
     public List<UserUserProfile> getAllMembers();
-
+    
+    public List<UserUserProfile> getAllEmployees();
+    
 //    public UserUserProfile getUserUserProfileById(int userId);
 
     public UserUserProfile getUserUserProfileByIdB(int userId);

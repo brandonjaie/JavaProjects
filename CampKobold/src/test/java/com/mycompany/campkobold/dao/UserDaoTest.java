@@ -37,12 +37,12 @@ public class UserDaoTest {
     private AuthorityDao xDao;
     private StatusDao sDao;
     private AssetDao aDao;
-    
+
     private Asset a1;
     private Asset a2;
-    
+
     private AssetRecord r1;
-    
+
     private UserUserProfile u1;
     private UserUserProfile u2;
     private UserUserProfile u3;
@@ -157,7 +157,6 @@ public class UserDaoTest {
 
     }
 
-
     /**
      * Test of getAllUserUserProfiles method, of class UserDao.
      */
@@ -176,7 +175,7 @@ public class UserDaoTest {
         assertFalse(uList3.isEmpty());
 
     }
-    
+
     /**
      * Test of getAllMembers method, of class UserDao.
      */
@@ -193,13 +192,47 @@ public class UserDaoTest {
         List<UserUserProfile> uList3 = uDao.getAllUserUserProfiles();
         assertEquals(3, uList3.size());
         assertFalse(uList3.isEmpty());
-        
+
         List<UserUserProfile> mList = uDao.getAllMembers();
         assertEquals(1, mList.size());
-        
+
         for (UserUserProfile userUserProfile : mList) {
             assertEquals(userUserProfile.getUserId(), u3.getUserId());
         }
+
+    }
+
+    /**
+     * Test of getAllEmployees method, of class UserDao.
+     */
+    @Test
+    public void testGetAllEmployees() {
+
+        List<UserUserProfile> uList0 = uDao.getAllUserUserProfiles();
+        assertEquals(0, uList0.size());
+
+        uDao.addUserUserProfile(u1);
+        uDao.addUserUserProfile(u2);
+        uDao.addUserUserProfile(u3);
+
+        List<UserUserProfile> uList3 = uDao.getAllUserUserProfiles();
+        assertEquals(3, uList3.size());
+        assertFalse(uList3.isEmpty());
+
+        List<UserUserProfile> eList = uDao.getAllEmployees();
+        assertEquals(2, eList.size());
+        
+        boolean employeeExists = false;
+
+        for (UserUserProfile userUserProfile : eList) {
+
+            if (userUserProfile.getAuthority().getAuthority().equals("ROLE_ADMIN")
+                    || userUserProfile.getAuthority().getAuthority().equals("ROLE_EMPLOYEE")) {
+                employeeExists = true;
+            }
+        }
+        
+        assertTrue(employeeExists);
 
     }
 
@@ -343,8 +376,8 @@ public class UserDaoTest {
 
         assertTrue(exists);
     }
-    
-     /**
+
+    /**
      * Test of searchMembers method, of class UserDao.
      */
     @Test
@@ -371,7 +404,7 @@ public class UserDaoTest {
         assertTrue(exists);
     }
 
-   /**
+    /**
      * Test of getHighestAuthorityByUserName method, of class AuthorityDao.
      */
     @Test
@@ -410,7 +443,6 @@ public class UserDaoTest {
         Authority result = xDao.getAuthorityByName(highestAuthority.getAuthority());
 
         assertEquals(result.getAuthority(), "ROLE_ADMIN");
-        
 
         UserUserProfile fromDb2 = uDao.getUserUserProfileByIdB(u2.getUserId());
 

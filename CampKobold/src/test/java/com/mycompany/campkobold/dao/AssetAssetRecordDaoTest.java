@@ -11,9 +11,14 @@ import com.mycompany.campkobold.dto.Authority;
 import com.mycompany.campkobold.dto.Category;
 import com.mycompany.campkobold.dto.Status;
 import com.mycompany.campkobold.dto.UserUserProfile;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
@@ -359,7 +364,6 @@ public class AssetAssetRecordDaoTest {
 //        assertFalse(memberExists2);
 //
 //    }
-
     /**
      * Test of checkDuplicateStatus method, of class RecordDao.
      */
@@ -695,6 +699,37 @@ public class AssetAssetRecordDaoTest {
     }
 
     /**
+     * Test of getAssetRecordsByCurrentDate method, of class RecordDao.
+     */
+    @Test
+    public void testGetAssetRecordsByCurrentDate() {
+
+        uDao.addUserUserProfile(u1);
+        uDao.addUserUserProfile(u3);
+        aDao.addAsset(a1, u1);
+        aDao.addAsset(a2, u1);
+
+        AssetRecord fromDb = rDao.getAssetRecordByAssetId(a1.getAssetId());
+        fromDb.setMember(u3);
+        fromDb.setStatus(sDao.getStatusById(2));
+
+        rDao.updateAssetRecord(fromDb, u1);
+
+        List<AssetRecord> aList = rDao.getAssetRecordsByCurrentDate();
+        assertEquals(3, aList.size());
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date today;
+        try {
+            today = dateFormat.parse(dateFormat.format(new Date()));
+            assertEquals(fromDb.getRecordDate(), today);
+        } catch (ParseException ex) {
+            Logger.getLogger(RecordDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    /**
      * Test of searchAssetRecords method, of class RecordDao.
      */
     @Test
@@ -727,6 +762,61 @@ public class AssetAssetRecordDaoTest {
         }
 
         assertTrue(exists);
+    }
+
+    /**
+     * Test of searchRecords method, of class RecordDao.
+     */
+    @Test
+    public void testSearchRecords() {
+
+        uDao.addUserUserProfile(u1);
+        uDao.addUserUserProfile(u3);
+        aDao.addAsset(a1, u1);
+
+        AssetRecord fromDb = rDao.getAssetRecordByAssetId(a1.getAssetId());
+        fromDb.setMember(u3);
+        fromDb.setStatus(sDao.getStatusById(2));
+
+        rDao.updateAssetRecord(fromDb, u1);
+
+        Map<SearchTerm, String> criteria = new HashMap<>();
+        
+        String date = new SimpleDateFormat("YYYY-MM-dd").format(new Date());
+
+        criteria.put(SearchTerm.RECORD_DATE, date);
+
+        List<AssetRecord> rList = rDao.searchRecords(criteria);
+
+        assertEquals(2, rList.size());
+
+        Boolean exists = false;
+
+        for (AssetRecord assetRecord : rList) {
+            if (assetRecord.getRecordDate().equals(fromDb.getRecordDate())) {
+                exists = true;
+            }
+        }
+
+        assertTrue(exists);
+
+        Map<SearchTerm, String> criteria2 = new HashMap<>();
+
+        criteria2.put(SearchTerm.EMPLOYEE_ID, Integer.toString(fromDb.getEmployee().getUserId()));
+
+        List<AssetRecord> rList2 = rDao.searchRecords(criteria2);
+
+        assertEquals(2, rList2.size());
+
+        Boolean exists2 = false;
+
+        for (AssetRecord assetRecord : rList2) {
+            if (assetRecord.getEmployee().getUserId() == fromDb.getEmployee().getUserId()) {
+                exists2 = true;
+            }
+        }
+
+        assertTrue(exists2);
     }
 
     @Test
