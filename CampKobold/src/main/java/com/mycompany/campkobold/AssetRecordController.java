@@ -164,6 +164,11 @@ public class AssetRecordController {
             criteriaMap.put(SearchTerm.MEMBER_ID, currentTerm);
         }
 
+        currentTerm = searchMap.get("status");
+        if (!currentTerm.isEmpty()) {
+            criteriaMap.put(SearchTerm.STATUS_ID, currentTerm);
+        }
+
         return rDao.searchRecords(criteriaMap);
     }
 

@@ -207,10 +207,19 @@
                                 </select>
                             </div>
                             <div class="col-md-2">
-                                <br>
-                                <button type="submit" id="search-associates-button" class="btn btn-primary">Search</button>
+                                <label></label>
+                                <select id="search-status" class="form-control">
+                                    <option value="" selected>Status</option>
+                                    <option value="1">AVAILABLE</option>
+                                    <option value="2">CHECKED OUT</option>
+                                    <option value="3">BROKEN</option>
+                                    <option value="4">LOST</option>
+                                    <option value="5">UNDER REPAIRS</option>
+                                </select>
                             </div>
                             <div class="col-md-2">
+                                <br>
+                                <button type="submit" id="search-associates-button" class="btn btn-primary">Search</button>
                             </div>
                             <div class="col-md-2">
                                 <br>

@@ -48,7 +48,8 @@ $(document).ready(function () {
             data: JSON.stringify({
                 recordDate: $('#search-date').val(),
                 employeeId: $('#search-employee-id').val(),
-                memberId: $('#search-members-id').val()
+                memberId: $('#search-members-id').val(),
+                status: $('#search-status').val()
             }),
             headers: {
                 'Accept': 'application/json',
@@ -59,6 +60,7 @@ $(document).ready(function () {
             $('#search-date').val('');
             $('#search-employee-id').val('');
             $('#search-members-id').val('');
+            $('#search-status').val('');
             fillRecordTable(data, status);
         }).error(function (data, status) {
         });
