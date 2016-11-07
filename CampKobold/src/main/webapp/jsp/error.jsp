@@ -41,7 +41,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <div class="navbar-brand">Equipment Rental</div>
+                        <div class="navbar-brand"
+                             style="pointer-events: none;">Vending Machine</div>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -97,7 +98,8 @@
                         </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
                             <div class="navbar-header pull-right">
-                                <button class="btn principal">
+                                <button class="btn principal"
+                                        style="background: lightgray; pointer-events: none;">
                                     <sec:authentication property="principal.username"/>
                                 </button>
                                 <a href="${pageContext.request.contextPath}/j_spring_security_logout"> 
@@ -114,7 +116,7 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-4 error">         
                     <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">                   
-                        <h4>username or password is incorrect</h4>
+                        <h4 style="color: crimson">username or password is incorrect</h4>
                         <%--<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>.--%>
                     </c:if>
                 </div>
