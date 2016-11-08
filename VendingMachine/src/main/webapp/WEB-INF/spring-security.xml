@@ -29,19 +29,10 @@
         <!-- #3c - Redirect here if login fails -->
         <form-login login-processing-url="/j_spring_security_check"
                     login-page="/vend"
+                    default-target-url="/admin" 
                     authentication-failure-url="/error?login_error=1"/>
         <!-- #3d - Go back to home page when user logs out -->
         <logout logout-success-url="/vend"/>
-        
-<!--        <session-management>
-            <concurrency-control max-sessions="1" />
-        </session-management>
-        
-        <session-management>
-            <concurrency-control expired-url="/errors" />
-        </session-management>
-        -->
-        <!-- #3e -->
 
         <intercept-url pattern="/admin" access="hasAnyRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/stockInventory" access="hasAnyRole('ROLE_ADMIN')"/>

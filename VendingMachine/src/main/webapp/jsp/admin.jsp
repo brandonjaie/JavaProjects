@@ -30,14 +30,13 @@
         <div class="container-fluid">
             <div class="content">
                 <img src="${pageContext.request.contextPath}/img/vending_logo.png" 
-                     alt="tree_logo" 
+                     alt="vending_logo" 
                      style="padding-right: 5px" 
                      height="30" 
                      width="30" 
                      align="left">
                 <h2>Refreshment Solutions</h2>
-            </div>
-            <div class="panel panel-title"></div>                   
+            </div>                 
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -53,6 +52,7 @@
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <!--NAV LINKS-->
                         <ul class="nav navbar-nav">                   
                             <!--render navbar links based on roles-->
                             <li><a href="${pageContext.request.contextPath}/vend">Home</a></li>
@@ -60,6 +60,8 @@
                                 <li class="active"><a href="${pageContext.request.contextPath}/admin">Admin</a></li>
                                 </sec:authorize>
                         </ul>
+                        <!--NAV LINKS-->
+                        <!--LOG IN FORM-->        
                         <sec:authorize access="isAnonymous()">
                             <form id="logInForm" class="signin navbar-form navbar-right" 
                                   method="post" 
@@ -86,9 +88,11 @@
                                 </button>
                             </form>
                         </sec:authorize>
+                        <!--END LOG IN FORM-->
+                        <!--LOG OUT BUTTON-->
                         <sec:authorize access="isAuthenticated()">
                             <div class="signout navbar-form navbar-right">
-                                <button class="btn principal"
+                                <button class="btn"
                                         style="background: lightgray; pointer-events: none;">
                                     <sec:authentication property="principal.username"/>
                                 </button>
@@ -102,15 +106,15 @@
                                 </a>
                             </div>
                         </sec:authorize>
+                        <!--END LOG OUT BUTTON-->
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
         </div>
 
         <div class="container-fluid">
-
             <div class="row text-center">
-
+                <!--VENDING INVENTORY DIV-->
                 <div class="col-md-6" style="padding: 20px">
                     <form class="form-horizontal" 
                           modelAttribute="items"
@@ -170,14 +174,15 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="panel-footer">
                                             <div class="row" style="padding-top: 15px">
                                                 <div class="col-sm-6">
-                                                    <div class="well well-sm" style="border-color: lightgray"><b>${item.itemPrice}</b></div>
+                                                    <div class="well well-sm" 
+                                                         style="border-color: lightgray"><b>${item.itemPrice}</b></div>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <div class="well well-sm" style="border-color: lightgray" id="inventory"><b>${item.inventory}</b></div>
+                                                    <div class="well well-sm" 
+                                                         style="border-color: lightgray" id="inventory"><b>${item.inventory}</b></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -187,7 +192,8 @@
                         </div>
                     </form>
                 </div>
-
+                <!--END VENDING INVENTORY DIV-->
+                <!--RESTOCK DIV-->
                 <div class="col-md-6">
                     <br>
                     <h4>Restock Vending Machine</h4>
@@ -203,6 +209,7 @@
                         </div>
                     </div>
                 </div>
+                <!--END RESTOCK DIV-->
                 <br>
             </div>
             <jsp:include page="footer.jsp"/>

@@ -24,14 +24,13 @@
         <div class="container-fluid">
             <div class="content">
                 <img src="${pageContext.request.contextPath}/img/vending_logo.png" 
-                     alt="tree_logo" 
+                     alt="vending_logo" 
                      style="padding-right: 5px" 
                      height="30" 
                      width="30" 
                      align="left">
                 <h2>Refreshment Solutions</h2>
-            </div>
-            <div class="panel panel-title"></div>                   
+            </div>                 
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -47,6 +46,7 @@
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <!--NAV LINKS-->
                         <ul class="nav navbar-nav">                   
                             <!--render navbar links based on roles-->
                             <li class="active"><a href="${pageContext.request.contextPath}/vend">Home</a></li>
@@ -54,6 +54,8 @@
                                 <li><a href="${pageContext.request.contextPath}/admin">Admin</a></li>
                                 </sec:authorize>
                         </ul>
+                        <!--NAV LINKS-->
+                        <!--LOG IN FORM-->        
                         <sec:authorize access="isAnonymous()">
                             <form id="logInForm" class="signin navbar-form navbar-right" 
                                   method="post" 
@@ -80,9 +82,11 @@
                                 </button>
                             </form>
                         </sec:authorize>
+                        <!--END LOG IN FORM-->
+                        <!--LOG OUT BUTTON-->
                         <sec:authorize access="isAuthenticated()">
                             <div class="signout navbar-form navbar-right">
-                                <button class="btn principal" 
+                                <button class="btn" 
                                         style="background: lightgray; pointer-events: none;">
                                     <sec:authentication property="principal.username"/>
                                 </button>
@@ -96,6 +100,7 @@
                                 </a>
                             </div>
                         </sec:authorize>
+                        <!--END LOG OUT BUTTON-->
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
@@ -103,7 +108,6 @@
 
         <div class="container-fluid">
             <div class="row text-center">
-                
                 <!--VENDING MACHINE DIV-->
                 <div class="col-md-6" style="padding: 20px">
                     <form class="form-horizontal" 
@@ -187,17 +191,16 @@
                     </form>
                 </div>
                 <!--END VENDING MACHINE DIV-->
-                
                 <!--RECEIPT, COIN RETURN, ERRORS DIV-->
                 <div class="col-md-6">
                     <br>
                     <h4>Refreshment Solutions Receipt</h4>
-                    <div>
+                    <div class="row">
                         <div class="col-sm-12">
                             <br>
                             <!--RECEIPT-->
                             <c:if test="${!empty successMsg}">
-                                <img class="img img-responsive center-block" id="product" 
+                                <img class="img img-responsive center-block" alt="product" 
                                      src="${pageContext.request.contextPath}/${image}" width="100" height="100"/>
                                 <br>
                             </div>
@@ -289,7 +292,7 @@
                             <!--END RECEIPT-->
                             <!--INSUFFICIENT FUNDS-->
                             <c:if test="${!empty insertFundsMsg}">
-                                <img class="img img-responsive center-block" id="product" 
+                                <img class="img img-responsive center-block" alt="product_image" 
                                      src="${pageContext.request.contextPath}/${image}" width="100" height="100"/>
                                 <h3>
                                     <span class="label label-danger">
@@ -350,7 +353,7 @@
                             <!--END COIN RETURN-->
                             <!--SOLD OUT-->
                             <c:if test="${!empty soldOutMsg}">
-                                <img class="img img-responsive center-block" id="product" 
+                                <img class="img img-responsive center-block" alt="product_image" 
                                      src="${pageContext.request.contextPath}/${image}" width="100" height="100"/>
                                 <h3>
                                     <span class="label label-danger">

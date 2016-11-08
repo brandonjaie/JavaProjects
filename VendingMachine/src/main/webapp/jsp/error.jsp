@@ -36,8 +36,7 @@
                      width="30" 
                      align="left">
                 <h2>Refreshment Solutions</h2>
-            </div>
-            <div class="panel panel-title"></div>                   
+            </div>                   
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -88,7 +87,7 @@
                         </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
                             <div class="signout navbar-form navbar-right">
-                                <button class="btn principal"
+                                <button class="btn"
                                         style="background: lightgray; pointer-events: none;">
                                     <sec:authentication property="principal.username"/>
                                 </button>
@@ -113,9 +112,7 @@
                 </div>
                 <div class="col-md-4"></div>
             </div>
-
             <div class="row text-center">
-
                 <div class="col-md-6" style="padding: 20px">
                     <form class="form-horizontal" 
                           modelAttribute="items"
@@ -179,10 +176,12 @@
                                         <div class="panel-footer">
                                             <div class="row" style="padding-top: 15px">
                                                 <div class="col-sm-6">
-                                                    <div class="well well-sm" style="border-color: lightgray"><b>${item.itemPrice}</b></div>
+                                                    <div class="well well-sm" 
+                                                         style="border-color: lightgray"><b>${item.itemPrice}</b></div>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <div class="well well-sm" style="border-color: lightgray"><b>${item.inventory}</b></div>
+                                                    <div class="well well-sm" 
+                                                         style="border-color: lightgray"><b>${item.inventory}</b></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -192,7 +191,6 @@
                         </div>
                     </form>
                 </div>
-
                 <div class="col-md-6">
                     <br>
                     <h4>Refreshment Solutions Receipt</h4>
