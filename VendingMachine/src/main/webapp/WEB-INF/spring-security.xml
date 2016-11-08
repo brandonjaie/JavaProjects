@@ -44,6 +44,7 @@
         <!-- #3e -->
 
         <intercept-url pattern="/admin" access="hasAnyRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/stockInventory" access="hasAnyRole('ROLE_ADMIN')"/>
      
     </http>
     <!-- #4 - Authentication Manager config -->

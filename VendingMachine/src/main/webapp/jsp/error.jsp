@@ -197,6 +197,7 @@
                     <br>
                     <h4>Refreshment Solutions Receipt</h4>
                 </div>
+                <br>
             </div>
             <jsp:include page="footer.jsp"/>
         </div>

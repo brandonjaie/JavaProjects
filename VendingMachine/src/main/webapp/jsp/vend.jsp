@@ -102,9 +102,9 @@
         </div>
 
         <div class="container-fluid">
-
             <div class="row text-center">
-
+                
+                <!--VENDING MACHINE DIV-->
                 <div class="col-md-6" style="padding: 20px">
                     <form class="form-horizontal" 
                           modelAttribute="items"
@@ -139,6 +139,7 @@
                             <div class="col-xs-2"></div>
                         </div>
                         <div class="form-group">
+                            <!--ITEM PANELS-->
                             <c:forEach var="item" items="${items}">
                                 <div class="col-sm-4 text-center">
                                     <div class="panel panel-default">
@@ -165,7 +166,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="panel-footer">
                                             <div class="row" style="padding-top: 15px">
                                                 <div class="col-sm-6">
@@ -181,17 +181,21 @@
                                         </div>
                                     </div>
                                 </div>
-                            </c:forEach>        
+                            </c:forEach>
+                            <!--END ITEM PANELS-->
                         </div>
                     </form>
                 </div>
-
+                <!--END VENDING MACHINE DIV-->
+                
+                <!--RECEIPT, COIN RETURN, ERRORS DIV-->
                 <div class="col-md-6">
                     <br>
                     <h4>Refreshment Solutions Receipt</h4>
                     <div>
                         <div class="col-sm-12">
                             <br>
+                            <!--RECEIPT-->
                             <c:if test="${!empty successMsg}">
                                 <img class="img img-responsive center-block" id="product" 
                                      src="${pageContext.request.contextPath}/${image}" width="100" height="100"/>
@@ -282,6 +286,8 @@
                                     </div>
                                 </div>
                             </c:if>
+                            <!--END RECEIPT-->
+                            <!--INSUFFICIENT FUNDS-->
                             <c:if test="${!empty insertFundsMsg}">
                                 <img class="img img-responsive center-block" id="product" 
                                      src="${pageContext.request.contextPath}/${image}" width="100" height="100"/>
@@ -291,6 +297,8 @@
                                     </span>
                                 </h3>
                             </c:if>
+                            <!--END INSUFFICIENT FUNDS-->
+                            <!--COIN RETURN-->
                             <c:if test="${!empty coinReturnMsg}">
                                 <br>
                                 <div class="col-sm-2"></div>
@@ -339,6 +347,8 @@
                                 <div class="col-sm-2"></div>
                                 <br>
                             </c:if>
+                            <!--END COIN RETURN-->
+                            <!--SOLD OUT-->
                             <c:if test="${!empty soldOutMsg}">
                                 <img class="img img-responsive center-block" id="product" 
                                      src="${pageContext.request.contextPath}/${image}" width="100" height="100"/>
@@ -348,9 +358,11 @@
                                     </span>
                                 </h3>
                             </c:if>
+                            <!--END SOLD OUT-->
                         </div>
                     </div>
                 </div>
+                <!--END RECEIPT, COIN RETURN, ERRORS DIV-->
             </div>
             <jsp:include page="footer.jsp"/>
         </div>

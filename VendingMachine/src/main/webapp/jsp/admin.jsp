@@ -203,6 +203,7 @@
                         </div>
                     </div>
                 </div>
+                <br>
             </div>
             <jsp:include page="footer.jsp"/>
         </div>
