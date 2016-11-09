@@ -173,7 +173,7 @@
                                         <div class="panel-footer">
                                             <div class="row" style="padding-top: 15px">
                                                 <div class="col-sm-6">
-                                                    <div class="well well-sm"
+                                                    <div class="well well-sm text-center"
                                                          id="item-price"
                                                          style="border-color: lightgray"><b>${item.itemPrice}</b></div>
                                                 </div>
