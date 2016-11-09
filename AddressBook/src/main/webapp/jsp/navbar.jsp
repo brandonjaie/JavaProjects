@@ -48,7 +48,7 @@
 <div class="container">
     <div class="content">
         <img src="${pageContext.request.contextPath}/img/addressbook.png" 
-             alt="calculator_logo" 
+             alt="addressbook_logo" 
              style="padding-right: 5px" 
              height="30" 
              width="35" 

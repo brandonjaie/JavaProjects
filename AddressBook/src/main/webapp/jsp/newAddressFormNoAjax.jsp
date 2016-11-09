@@ -17,7 +17,7 @@
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/addressbook.png">
     </head>
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <div class="content">
                 <img src="${pageContext.request.contextPath}/img/addressbook.png" 
                      alt="calculator_logo" 
