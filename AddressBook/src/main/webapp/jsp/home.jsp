@@ -25,7 +25,7 @@
                      height="30" 
                      width="35" 
                      align="left">
-                <h2>AddressBook</h2>
+                <h2>Address Book</h2>
             </div>
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
@@ -36,6 +36,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
+                        <div class="navbar-brand" 
+                             style="pointer-events: none; ">Address Book</div>
                     </div>
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -64,7 +66,7 @@
             </nav>
         </div>
         <div class="container">
-            <h2>AddressBook</h2> 
+            <h2>Address Book</h2> 
             <div class="row">
                 <div class="col-md-6">
 
