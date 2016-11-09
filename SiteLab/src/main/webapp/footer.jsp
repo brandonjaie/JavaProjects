@@ -5,7 +5,7 @@
 --%>
 
 
-<div class="footer" style="margin-top: 40px">
+<div class="footer" style="margin-top: 70px">
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="col-sm-10 text-muted navbar-text">
             &copy2016 Site Lab. Brandon J. Mathis

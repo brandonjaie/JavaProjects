@@ -45,7 +45,7 @@
 }
 
 </style>
-<div class="container">
+<div class="container-fluid">
     <div class="content">
         <img src="${pageContext.request.contextPath}/img/calculator.png" 
              alt="calculator_logo" 
