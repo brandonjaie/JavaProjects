@@ -5,10 +5,10 @@
 --%>
 
 
-<div class="footer" style="margin-top: 40px">
+<div class="footer" style="margin-top: 60px">
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="col-sm-10 text-muted navbar-text">
-            &copy2016 AddressBook. Brandon J. Mathis
+            &copy2016 Address Book. Brandon J. Mathis
         </div>
     </nav>
 </div>

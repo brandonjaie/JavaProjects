@@ -65,7 +65,7 @@
                 </div>
             </nav>
         </div>
-        <div class="container">
+        <div class="container-fluid" style="margin: 0px 10px;">
             <h2>Address Book</h2> 
             <div class="row">
                 <div class="col-md-6">

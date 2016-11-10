@@ -65,7 +65,7 @@
         </nav>
     </div>
 
-    <div class="container">
+    <div class="container-fluid" style="margin: 0px 10px;">
 
         <h2>My Address Book
             <a href="displayNewAddressFormNoAjax">

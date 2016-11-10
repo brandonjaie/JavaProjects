@@ -65,7 +65,7 @@
                 </div>
             </nav>
         </div>
-        <div class="container">
+        <div class="container-fluid" style="margin: 0px 10px;">
             <div class="row">
                 <!-- #1: Contacts Per Company Chart -->
                 <div class="col-md-12">

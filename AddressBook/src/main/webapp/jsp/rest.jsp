@@ -62,7 +62,7 @@
                 </div>
             </nav>
         </div>
-        <div class="container">
+        <div class="container-fluid" style="margin: 0px 10px;">
             <!--
             Add a row to our container - this will hold the summary table and the new contact form.
             -->

@@ -127,14 +127,16 @@ function clearAddressTable() {
 }
 
 function deleteAddress(addressId) {
-
-    $.ajax({
-        type: 'DELETE',
-        url: 'http://localhost:8080/AddressBook/address/' + addressId
-    }).success(function () {
-        hideEditForm();
-        loadAddresses();
-    });
+    var answer = confirm("Do you really want to delete this address?");
+    if (answer === true) {
+        $.ajax({
+            type: 'DELETE',
+            url: 'http://localhost:8080/AddressBook/address/' + addressId
+        }).success(function () {
+            hideEditForm();
+            loadAddresses();
+        });
+    }
 }
 
 function showEditForm(addressId) {

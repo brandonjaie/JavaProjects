@@ -66,7 +66,7 @@
             </nav>
         </div>
 
-        <div class="container">
+        <div class="container-fluid" style="margin: 0px 10px;">
             <h2>New Address Form
                 <a href="displayAddressesNoAjax">
                     <button class="btn btn-primary btn-sm">Display Addresses</button>
