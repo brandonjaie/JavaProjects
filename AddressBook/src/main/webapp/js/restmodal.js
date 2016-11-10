@@ -16,7 +16,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:8080/AddressBook/address',
+            url: 'address',
             data: JSON.stringify({
                 firstName: $('#add-first-name').val(),
                 lastName: $('#add-last-name').val(),

@@ -15,7 +15,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:8080/AddressBook/address',
+            url: 'address',
             data: JSON.stringify({
                 firstName: $('#add-first-name').val(),
                 lastName: $('#add-last-name').val(),
@@ -92,7 +92,7 @@ function loadAddresses() {
 
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/AddressBook/addresses'
+        url: 'addresses'
     }).success(function (data, status) {
         $.each(data, function (index, address) {
             var name = address.firstName + ' ' + address.lastName;
@@ -131,7 +131,7 @@ function deleteAddress(addressId) {
     if (answer === true) {
         $.ajax({
             type: 'DELETE',
-            url: 'http://localhost:8080/AddressBook/address/' + addressId
+            url: 'address/' + addressId
         }).success(function () {
             hideEditForm();
             loadAddresses();
