@@ -16,9 +16,10 @@
         <link rel="stylesheet" href="css/bootstrap-theme.css">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/calculator.png">
     </head>
+    
     <body>
         <jsp:include page="navbar.jsp"/>
-        <div class="container">
+        <div class="container-fluid" style="margin: 0px 10px">
             <div class="row">
                 <div class="col-md-6">
                     <div class="panel-group">

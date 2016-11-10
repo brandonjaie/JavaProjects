@@ -19,7 +19,7 @@
 
     <body>
         <jsp:include page="navbar.jsp"/>
-        <div class="container"> 
+        <div class="container-fluid" style="margin: 0px 10px"> 
             <div class="row">
                 <div class="col-md-6" style="padding: 20px">
                     <h4>Mission Statement</h4>
