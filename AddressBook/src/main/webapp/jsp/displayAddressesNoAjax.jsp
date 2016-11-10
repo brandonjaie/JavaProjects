@@ -70,7 +70,7 @@
 
         <h3>My Address Book
             <a href="displayNewAddressFormNoAjax">
-                <button class="btn btn-primary btn-sm">New Address</button>
+                <button class="btn btn-primary btn-sm">Add Address</button>
             </a>
         </h3>
         <hr/>

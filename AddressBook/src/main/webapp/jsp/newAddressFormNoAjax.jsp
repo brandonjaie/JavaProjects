@@ -68,7 +68,7 @@
         </div>
 
         <div class="container-fluid" style="margin: 0px 10px;">
-            <h3>New Address
+            <h3>Add Address
                 <a href="displayAddressesNoAjax">
                     <button class="btn btn-primary btn-sm">Display Addresses</button>
                 </a>
@@ -124,7 +124,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-4 col-md-8">
-                        <button type="submit" id="add-button" class="btn btn-primary">Create Address</button>
+                        <button type="submit" id="add-button" class="btn btn-primary">Add Address</button>
                     </div>
                 </div>
 

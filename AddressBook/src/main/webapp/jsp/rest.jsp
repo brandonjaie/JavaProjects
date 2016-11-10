@@ -189,7 +189,7 @@
 
                 <div id="addFormDiv">
 
-                    <h3>Add New Address</h3>
+                    <h3>Add Address</h3>
 
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
@@ -262,7 +262,7 @@
                                 <button type="submit"
                                         id="add-button"
                                         class="btn btn-primary">
-                                    Create Address
+                                    Add Address
                                 </button>
                             </div>
                         </div>

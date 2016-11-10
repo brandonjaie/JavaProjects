@@ -74,7 +74,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <h3>Add New Address</h3>
+                    <h3>Add Address</h3>
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
                             <label for="add-first-name" class="col-md-4 control-label">First Name:</label>
@@ -114,7 +114,7 @@
                         </div>
                         <div class="form-group">
                             <div class ="col-md-offset-4 col-md-8">
-                                <button type="submit" id="add-button" class="btn btn-primary">Create Address</button>
+                                <button type="submit" id="add-button" class="btn btn-primary">Add Address</button>
                             </div>
                         </div>
                     </form>
