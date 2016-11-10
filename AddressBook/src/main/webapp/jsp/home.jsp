@@ -12,6 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Address Book</title>
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/addressbook.png">
@@ -66,7 +67,7 @@
             </nav>
         </div>
         <div class="container-fluid" style="margin: 0px 10px;">
-            <h2>Address Book</h2> 
+            <h3>Address Book</h3> 
             <div class="row">
                 <div class="col-md-6">
 

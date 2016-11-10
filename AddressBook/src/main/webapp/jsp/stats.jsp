@@ -11,6 +11,8 @@
 <html>
     <head>
         <title>Address Book</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Bootstrap core CSS -->
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <!-- SWC Icon -->
@@ -69,7 +71,7 @@
             <div class="row">
                 <!-- #1: Contacts Per Company Chart -->
                 <div class="col-md-12">
-                    <h2>Statistics</h2> 
+                    <h3>Statistics</h3> 
                     <!-- #2: this is where we'll render the bar chart -->
                     <div id="chart_div"></div>
                 </div>

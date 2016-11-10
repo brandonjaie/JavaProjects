@@ -12,6 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Address Book</title>
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/addressbook.png">
@@ -67,11 +68,11 @@
         </div>
 
         <div class="container-fluid" style="margin: 0px 10px;">
-            <h2>Edit Address Form
+            <h3>Edit Address
                 <a href="displayAddressesNoAjax">
                     <button class="btn btn-primary btn-sm">Display Addresses</button>
                 </a>
-            </h2>
+            </h3>
             <hr/>
             <sf:form class="form-horizontal" modelAttribute="addresses" role="form" action="editAddressNoAjax" method="POST">
                 <div class="form-group">
@@ -129,6 +130,8 @@
             </div>
         </sf:form>
         <jsp:include page="footer.jsp"/>
-    </div>
-</body>
+        <!-- #5: Placed at the end of the document so the pages load faster -->
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+    </body>
 </html>

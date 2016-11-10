@@ -9,6 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Address Book</title>
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/addressbook.png">
@@ -70,7 +72,7 @@
                 <!-- #2: Add a col to hold the summary table - have it take up half the row -->
                 <div class="col-md-6">
                     <div id="contactTableDiv">
-                        <h2>My Address Book</h2>
+                        <h3>My Address Book</h3>
 
                         <table id="contactTable" class="table table-hover">
                             <tr>
@@ -94,7 +96,7 @@
                 <div class="col-md-6">
 
                     <div id="editFormDiv" style="display: none">
-                        <h2 onclick="hideEditForm()">Edit Address</h2>
+                        <h3 onclick="hideEditForm()">Edit Address</h3>
 
                         <form class="form-horizontal" role="form">
                             <div class="form-group">
@@ -164,21 +166,18 @@
                             </div>
 
                             <div class="form-group">
-                                <div class="col-md-offset-4 col-md-4">
+                                <div class="col-md-offset-4 col-md-8">
                                     <input type="hidden" id="edit-address-id">
-
+                                    <button type="submit"
+                                            id="edit-button"
+                                            class="btn btn-primary">
+                                        Update Address
+                                    </button>
                                     <button type="button"
                                             id="edit-cancel-button"
                                             class="btn btn-danger"
                                             onclick="hideEditForm()">
                                         Cancel
-                                    </button>
-                                </div>
-                                <div class="col-md-4">
-                                    <button type="submit"
-                                            id="edit-button"
-                                            class="btn btn-primary">
-                                        Update Address
                                     </button>
                                 </div>
                             </div>
@@ -190,7 +189,7 @@
 
                 <div id="addFormDiv">
 
-                    <h2>Add New Address</h2>
+                    <h3>Add New Address</h3>
 
                     <form class="form-horizontal" role="form">
                         <div class="form-group">

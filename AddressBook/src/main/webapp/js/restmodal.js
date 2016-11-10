@@ -195,7 +195,9 @@ function fillAddressTable(data, status) {
     $.each(data, function (index, address) {
         cTable.append($('<tr>')
                 .append($('<td>').append($('<a>')
-                        .attr({'data-address-id': address.addressId,
+                        .attr({
+                            'href': '#',
+                            'data-address-id': address.addressId,
                             'data-toggle': 'modal',
                             'data-target': '#detailsModal'})
                         .text(address.firstName + ' ' + address.lastName)
@@ -204,6 +206,7 @@ function fillAddressTable(data, status) {
                 .append($('<td>').text(address.city))
                 .append($('<td>').append($('<a>')
                         .attr({
+                            'href': '#',
                             'data-address-id': address.addressId,
                             'data-toggle': 'modal',
                             'data-target': '#editModal'

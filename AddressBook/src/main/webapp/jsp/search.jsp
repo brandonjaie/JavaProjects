@@ -11,6 +11,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Address Book</title>
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/addressbook.png">
@@ -68,12 +70,12 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <h2>Search Results</h2>
+                    <h3>Search Results</h3>
                     <%@include file="contactSummaryTableFragment.jsp"%>
                 </div>
 
                 <div class="col-md-6">
-                    <h2>Search Addresses</h2>
+                    <h3>Search Addresses</h3>
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
                             <label for="search-first-name" class="col-md-4 control-label">First Name:</label>

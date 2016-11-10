@@ -9,12 +9,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Address Book</title>
-<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-<link rel="shortcut icon" href="${pageContext.request.contextPath}/img/addressbook.png">
-
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Address Book</title>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/addressbook.png">
+</head>
 <body>
     <div class="container-fluid">
         <div class="content">
@@ -67,11 +68,11 @@
 
     <div class="container-fluid" style="margin: 0px 10px;">
 
-        <h2>My Address Book
+        <h3>My Address Book
             <a href="displayNewAddressFormNoAjax">
-                <button class="btn btn-primary btn-sm">New Address Form</button>
+                <button class="btn btn-primary btn-sm">New Address</button>
             </a>
-        </h2>
+        </h3>
         <hr/>
         <c:forEach var="address" items="${addresses}">
 
