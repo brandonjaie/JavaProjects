@@ -115,7 +115,7 @@
         <div class="container-fluid">
             <div class="row text-center">
                 <!--VENDING INVENTORY DIV-->
-                <div class="col-md-6" style="padding: 20px">
+                <div class="col-lg-6" style="padding: 20px">
                     <form class="form-horizontal" 
                           modelAttribute="items"
                           role="form" 
@@ -194,7 +194,7 @@
                 </div>
                 <!--END VENDING INVENTORY DIV-->
                 <!--RESTOCK DIV-->
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <br>
                     <h4>Restock Vending Machine</h4>
                     <div class="row">

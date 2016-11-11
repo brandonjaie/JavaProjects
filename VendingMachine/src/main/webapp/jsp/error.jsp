@@ -113,7 +113,7 @@
                 <div class="col-md-4"></div>
             </div>
             <div class="row text-center">
-                <div class="col-md-6" style="padding: 20px">
+                <div class="col-lg-6" style="padding: 20px">
                     <form class="form-horizontal" 
                           modelAttribute="items"
                           role="form" 
@@ -191,7 +191,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <br>
                     <h4>Refreshment Solutions Receipt</h4>
                 </div>
