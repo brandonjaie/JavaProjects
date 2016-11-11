@@ -6,8 +6,8 @@
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<style>
-    @media (max-width: 1000px) {
+<!--<style>
+/*    @media (max-width: 1000px) {
         .navbar-header {
             float: none;
         }
@@ -42,9 +42,9 @@
         .collapse.in{
             display:block !important;
         }
-    }
+    }*/
 
-</style>
+</style>-->
 <div class="container-fluid">
     <div class="content">
         <img src="${pageContext.request.contextPath}/img/calculator.png" 
