@@ -30,6 +30,7 @@ $('document').ready(function () {
             'dataType': 'json'
         }).success(function () {
             window.location.reload(true);
+            alert("Inventory Restocked");
         }).error(function (data, status) {
             alert("Restock Not Available");
         });
