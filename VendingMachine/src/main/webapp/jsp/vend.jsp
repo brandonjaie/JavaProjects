@@ -109,7 +109,7 @@
         <div class="container-fluid">
             <div class="row text-center">
                 <!--VENDING MACHINE DIV-->
-                <div class="col-md-6" style="padding: 20px">
+                <div class="col-lg-6" style="padding: 20px">
                     <form class="form-horizontal" 
                           modelAttribute="items"
                           role="form" 
@@ -192,7 +192,7 @@
                 </div>
                 <!--END VENDING MACHINE DIV-->
                 <!--RECEIPT, COIN RETURN, ERRORS DIV-->
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <br>
                     <h4>Refreshment Solutions Receipt</h4>
                     <div class="row">
