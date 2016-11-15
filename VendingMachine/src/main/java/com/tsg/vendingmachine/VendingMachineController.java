@@ -112,7 +112,13 @@ public class VendingMachineController {
                         req.setAttribute("insertFundsMsg", "Insufficient Funds");
                     }
                 } else {
-                    req.setAttribute("soldOutMsg", "Sold Out");
+                    req.setAttribute("soldOutMsg", "Sold Out");         
+                        double coinReturn = Double.parseDouble(totalDeposit);
+                        req.setAttribute("coinReturnMsg", "Coin Return");
+                        change = new Change(coinReturn);
+                        req.setAttribute("quarters", change.getQuarters());
+                        req.setAttribute("dimes", change.getDimes());
+                        req.setAttribute("nickels", change.getNickels());      
                 }
             }
             req.setAttribute("quarters", change.getQuarters());

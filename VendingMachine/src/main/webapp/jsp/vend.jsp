@@ -301,6 +301,17 @@
                                 </h3>
                             </c:if>
                             <!--END INSUFFICIENT FUNDS-->
+                            <!--SOLD OUT-->
+                            <c:if test="${!empty soldOutMsg}">
+                                <img class="img img-responsive center-block" alt="product_image" 
+                                     src="${pageContext.request.contextPath}/${image}" width="100" height="100"/>
+                                <h3>
+                                    <span class="label label-danger">
+                                        ${soldOutMsg}
+                                    </span>
+                                </h3>
+                            </c:if>
+                            <!--END SOLD OUT-->
                             <!--COIN RETURN-->
                             <c:if test="${!empty coinReturnMsg}">
                                 <br>
@@ -351,17 +362,6 @@
                                 <br>
                             </c:if>
                             <!--END COIN RETURN-->
-                            <!--SOLD OUT-->
-                            <c:if test="${!empty soldOutMsg}">
-                                <img class="img img-responsive center-block" alt="product_image" 
-                                     src="${pageContext.request.contextPath}/${image}" width="100" height="100"/>
-                                <h3>
-                                    <span class="label label-danger">
-                                        ${soldOutMsg}
-                                    </span>
-                                </h3>
-                            </c:if>
-                            <!--END SOLD OUT-->
                         </div>
                     </div>
                 </div>
