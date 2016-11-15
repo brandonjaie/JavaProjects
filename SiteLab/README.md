@@ -9,6 +9,6 @@ Site Lab features an Interest Calculator, a Tip Calculator, a Flooring Calculato
 
 Development Info:
 
-Site Lab is a Java Web Application developed using Agile Software Development techniques, and built utilizing Spring MVC, Servlets, JSPs, JSTL, JSP Expression Language, HTML, CSS, Bootstrap and Responsive Design.
+Site Lab is a Java Web Application built utilizing Spring MVC, Servlets, JSPs, JSTL, JSP Expression Language, HTML, CSS, Bootstrap and Responsive Design.
 
 http://brandonjaie.com/sitelab
