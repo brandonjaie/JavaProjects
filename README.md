@@ -6,5 +6,4 @@ Java web application development, Tiered Application Design (N-tier), Spring MVC
 
 
 ### About The Software Guild
-
-The Software Guild is an intensive, accelerated apprenticeship program that employs a highly immersive learning environment where apprentices develop the essential programming foundations required to enter the market as successful junior software developers. Apprentices are instructed and mentored for over 750 hours by senior level developers who have worked in the field for at least 15 years. The graduates leave as successful developers with hands-on, full-stack experience. For more information on this accredited program: http://thesoftwareguild.com
+The Software Guild is an intensive, accelerated apprenticeship program where apprentices develop the essential programming foundations required to enter the market as successful full stack software developers. Apprentices are instructed and mentored for over 750 hours by senior level developers. For more information on this accredited program: http://thesoftwareguild.com
