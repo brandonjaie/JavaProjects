@@ -2,7 +2,7 @@
 
 ### About:
 
-Vending Machine allows a user to insert funds into a vending machine, make a selection and receive a product and change. The application also features a coin return and allows an "admin" to enter a username and password to "restock" the machine.
+Vending Machine allows a user to insert funds into a vending machine UI, make a selection and receive a product and change. The application also features a coin return and allows an "admin" to enter a username and password to "restock" the machine.
 
 
 ### Development Info:
