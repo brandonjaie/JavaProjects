@@ -2,7 +2,7 @@
 
 ### About:
 
-Kobold Camp Equipment Rental is a personal capstone project I built to demonstrate my proficiency with The Software Guild’s Web Developer - Java curriculum. 
+Kobold Camp Equipment Rental is a personal capstone project I built to demonstrate my proficiency with The Software Guild’s Web Developer (Java) curriculum. 
 
 The general purpose of the application is to allow visitors to view the available equipment for loan, allow employees to check in & out equipment to members, and allow admins to add and remove equipment or employees.
 
