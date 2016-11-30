@@ -9,6 +9,6 @@ The general purpose of Address Book is to allow a user to manage a personal "add
 
 ### Development Info:
 
-Address Book is a Java Web Application developed using Agile Software Development techniques, and built utilizing Spring MVC, Spring JDBC, Prepared SQL Statements, REST, J-Unit Testing, JSPs, JSTL, JSP Expression Language, HTML, CSS, Bootstrap, Responsive Design, Javascript, JQuery, AJAX, and JSON.
+Address Book is a Java Web Application developed using Agile Software Development techniques, and built utilizing Spring MVC, Spring JDBC, MySQL, Prepared SQL Statements, REST, J-Unit Testing, JSPs, JSTL, JSP Expression Language, HTML, CSS, Bootstrap, Responsive Design, Javascript, JQuery, AJAX, and JSON.
 
 http://brandonjaie.com/addressbook
