@@ -2,9 +2,9 @@
 
 About:
 
-Address Book features web pages built with REST (with and without a Modal) using AJAX calls and a web page built primarily with JSTL and JSP Expression Language. It also features a stats page that allows a user to view the number of addresses by city.
+Address Book is a Spring MVC web application that contains CRUD functionality for addresses and features JSPs (with and without a Modal) built with RESTful endpoints that utilize AJAX calls to interact with the server, as well as a JSP built primarily with JSTL and JSP Expression Language. It also features a stats page built with Google Charts components that allows a user to view the number of addresses in the Address Book by city.
 
-Address Book allows a user to manage a personal "address book" by adding, editing, deleting, and searching addresses. 
+The general purpose of Address Book is to allow a user to manage a personal "address book" by adding, editing, deleting, and searching addresses. 
 
 
 Development Info:
