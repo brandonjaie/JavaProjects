@@ -19,6 +19,23 @@
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/vending_logo.png">
+        
+        <style>
+            @font-face {
+                font-family: 'digital'; /*a name to be used later*/
+                src: url("fonts/digital-7.regular.ttf"); /*URL to font*/
+            }
+
+            .digital{ 
+                font-family: 'digital';
+                font-size: 16px;
+                font-weight: bold;
+                letter-spacing: 1.5px;
+/*                text-align: center;*/
+            }
+        </style>
+
+
     </head>
     <body>
         <div class="container-fluid">
@@ -133,7 +150,7 @@
                                        id="totalDeposit" 
                                        name="totalDeposit"
                                        onSubmit="saveDeposit()"
-                                       placeholder="Insert Funds" 
+                                       placeholder="Insert Funds"
                                        readonly/> 
                             </div>
                             <div class="col-xs-3">
