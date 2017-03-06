@@ -45,4 +45,7 @@
         
     </bean>
     
+    <!-- In-Memory DAO -->
+<!--    <bean id="dvdLibraryDao" class="com.tsg.dvdlibrary.dao.DVDLibraryDaoInMemImpl"></bean>-->
+    
 </beans>

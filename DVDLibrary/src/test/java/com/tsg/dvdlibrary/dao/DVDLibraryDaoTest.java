@@ -30,6 +30,9 @@ public class DVDLibraryDaoTest {
     private DVD d2;
     private DVD d3;
 
+    private Genre g1;
+    private Genre g2;
+
     public DVDLibraryDaoTest() {
     }
 
@@ -42,8 +45,16 @@ public class DVDLibraryDaoTest {
         JdbcTemplate cleaner = (JdbcTemplate) ctx.getBean("jdbcTemplate");
 
         cleaner.execute("delete from dvd");
-        
+
         cleaner.execute("ALTER TABLE dvd auto_increment = 1");
+        
+        g1 = new Genre();
+        g1.setGenreId(1);
+        g1.setGenreName("ACTION");
+        
+        g2 = new Genre();
+        g2.setGenreId(8);
+        g2.setGenreName("SCI-FI");
 
         d1 = new DVD();
 
@@ -53,7 +64,8 @@ public class DVDLibraryDaoTest {
         d1.setMpaaRating("PG");
         d1.setDirector("Mel Brooks");
         d1.setStudio("MiraMax");
-        d1.setGenre(dao.getGenreById(8));
+//        d1.setGenre(dao.getGenreById(8));
+        d1.setGenre(dao.getGenreById(g2.getGenreId()));
 
         d2 = new DVD();
 
@@ -63,7 +75,8 @@ public class DVDLibraryDaoTest {
         d2.setMpaaRating("R");
         d2.setDirector("Walter Hill");
         d2.setStudio("Paramount");
-        d2.setGenre(dao.getGenreById(1));
+//        d2.setGenre(dao.getGenreById(1));
+        d2.setGenre(dao.getGenreById(g1.getGenreId()));
 
         d3 = new DVD();
 
@@ -73,7 +86,8 @@ public class DVDLibraryDaoTest {
         d3.setMpaaRating("PG");
         d3.setDirector("George Lucas");
         d3.setStudio("LucasFilm");
-        d3.setGenre(dao.getGenreById(8));
+//        d3.setGenre(dao.getGenreById(8));
+        d3.setGenre(dao.getGenreById(g2.getGenreId()));
 
     }
 
@@ -81,7 +95,6 @@ public class DVDLibraryDaoTest {
     public void tearDown() {
     }
 
-    
     @Test
     public void testAddGetDVDByIdDeleteDVDs() {
         dao.addDVD(d1);
@@ -129,11 +142,10 @@ public class DVDLibraryDaoTest {
     public void testGetDVDbyId() {
 
         dao.addDVD(d3);
-        
+
         DVD fromDb = dao.getDVDById(d3.getDvdId());
-        
+
         assertEquals(fromDb.getDvdId(), d3.getDvdId());
-        
 
     }
 
@@ -186,7 +198,7 @@ public class DVDLibraryDaoTest {
 
         assertTrue(exists);
 
-        //partial search test
+//        partial search test
         DVD fromDb2 = dao.getDVDById(d2.getDvdId());
 
         Map<SearchTerm, String> criteria2 = new HashMap<>();
