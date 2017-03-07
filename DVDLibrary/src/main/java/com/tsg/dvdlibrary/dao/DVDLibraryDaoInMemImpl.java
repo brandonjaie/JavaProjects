@@ -179,7 +179,31 @@ public class DVDLibraryDaoInMemImpl implements DVDLibraryDao {
 
     @Override
     public List<DVDGenreCount> getGenreDVDCounts() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<DVD> getGenresList = getAllDVDs();
+
+        List<DVDGenreCount> dgcList = new ArrayList();
+
+        Map<Genre, Integer> map = new HashMap<>();
+
+        for (DVD dvd : getGenresList) {
+            if (dvd.getGenre() != null) {
+                Integer count = map.get(dvd.getGenre());
+                map.put(dvd.getGenre(), (count == null) ? 1 : count + 1);
+            }
+        }
+
+        for (Map.Entry<Genre, Integer> entry : map.entrySet()) {
+            Genre key = entry.getKey();
+            Integer value = entry.getValue();
+            
+            DVDGenreCount dgc = new DVDGenreCount();
+            dgc.setGenre(key);
+            dgc.setNumDVDs(value);
+            
+            dgcList.add(dgc);       
+        }
+
+        return dgcList;
     }
 
 }
