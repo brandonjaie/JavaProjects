@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--This file holds the configuration information for the database and related components. Although it is empty
+right now, it will contain all the MySQL and DAO configuration information as the application is developed. All
+XML namespace entries required for AOP, transactions, MVC, and DI are included.-->
+
+<!--
+1. Enable Spring database transactions and configure transactions to be annotation-driven
+2. Define a data source — this bean definition contains all of the information needed to connect with the
+    database including:
+        a. The bean class to instantiate
+        b. The class to be used to connect to the database (i.e. the database driver class)
+        c. The URL with which to connect to the database server (i.e. host, port, and name of the
+        database)
+        d. The username and password for the database
+        e. Connection pool settings
+3. Define a bean for the Transaction Manager. The Transaction Manager requires a data source, so we
+    use Setter Injection to inject the data source defined in step 1 above.
+4. Define a bean for the JdbcTemplate that will be injected into our DAO. The JdbcTemplate requires a
+    data source, so we use Setter Injection to inject the data source defined in step 1 above.
+5. Update our DAO bean:
+        a. Change the class attribute to that of the new database implementation
+        b. Have Spring inject the JdbcTemplate (defined in step 2) via Setter Injection 
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/mvc
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                           http://www.springframework.org/schema/tx 
+                           http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd"> 
+
+    <!-- Bean definitions go here -->
+    <!-- #1 Use annotation-driven transactions -->
+    <tx:annotation-driven/>
+
+    <!-- Bean definitions go here -->
+    <!-- #2 Define Data Source -->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/ContactList"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+        <property name="initialSize" value="5"/>
+        <property name="maxTotal" value="10"/>
+    </bean>
+
+    <!-- #3 Define Transaction Manager -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- #4 Define JdbcTemplate -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- #5 Define the databae DAO -->
+    <bean id="contactListDao" class="com.mycompany.contactlistmvc.dao.ContactListDaoDbImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+     
+    <!-- In-Memory DAO -->
+<!--<bean id="contactListDao" class="com.mycompany.contactlistmvc.dao.ContactListDaoInMemImpl">
+    </bean>-->
+    
+</beans>

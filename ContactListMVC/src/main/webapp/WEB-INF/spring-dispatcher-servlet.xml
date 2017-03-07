@@ -1,0 +1,48 @@
+<!--The spring-dispatcher-servlet.xml contains the configuration for Spring MVC. This file has four important
+pieces:
+    1. All the XML namespaces for Spring configuration
+    2. Entry that allows us to specify Spring MVC components via annotations
+    3. Entry that specifies where Spring should start looking for annotated Spring MVC components
+    4. The View Resolver configuration:
+        a. In our case, we are using the InternalResourceViewResolver
+        b. We configure it to prefix all view names returned from controllers with /jsp/ (this tells Spring
+           MVC to look for view files in the jsp folder)
+        c. We configure it to consider all files ending in .jsp -->
+
+<!-- #1: XML namespace declarations start -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+                            http://www.springframework.org/schema/context  
+                            http://www.springframework.org/schema/context/spring-context-3.0.xsd
+                            http://www.springframework.org/schema/mvc
+                            http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+<!-- #1: XML namespace declarations end -->
+
+<!-- #2 Specify Spring MVC configuration is annotation driven start --> 
+    <!-- Uncomment this to move to annotation driven configuration -->
+    <mvc:annotation-driven />
+<!-- #2 Specify Spring MVC configuration is annotation driven end --> 
+
+<!-- #3 Specify where Spring should look for MVC components start -->
+    <context:component-scan base-package="com.mycompany.contactlistmvc" /> 
+<!-- #3 Specify where Spring should look for MVC components end --> 
+
+<!-- #4 Specify our View Resolver start --> 
+    <!-- #4-a Use InternalResourceViewResolver -->
+    <bean
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <!-- #4-b Prefix all view names with /jsp/ -->
+        <property name="prefix">
+            <value>/jsp/</value>
+        </property>
+    <!-- #4-c Append .jsp to all view names -->
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+ <!-- #4 Specify our View Resolver end -->    
+</beans>

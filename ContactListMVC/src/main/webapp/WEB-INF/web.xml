@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--The web.xml is a standard configuration file for servlet-based applications. In web.xml, we configure four
+things:
+    1. Our welcome file list
+    2. Servlet configuration:
+        a. Register the Spring DispatcherServlet
+        b. Create a servlet-mapping entry for it (our servlet will be called for any web request starting with
+        /ContactListMVC/). The Spring DispatcherServlet is the only servlet we register in our
+        application because Spring MVC uses the Front Controller design pattern (see here in Section
+        13.2). This means that all requests to our application will first be handled by the
+        DispatcherServlet, which will route the requests to the proper controller.
+        c. Tell Tomcat to use the default servlet when serving up static files such as JavaScript, CSS, and
+        images
+    3. Location of Spring context file(s): we use the <context-param> entry to tell Spring where to find its
+    configuration files
+    4. Context Loader Listener: tells the servlet container (Tomcat) to load the Spring context when the servlet
+    context is loaded; this means that Spring is automatically loaded when your web application starts up -->
+    
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xmlns="http://java.sun.com/xml/ns/javaee" 
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+         id="WebApp_ID" version="2.5">
+    <display-name>Archetype Created Spring MVC Web Application</display-name>
+<!-- #1 Specify welcome files start -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+<!-- #1 Specify welcome files end -->
+
+ <!-- #2 Servlet mapping start -->
+    <!-- #2-a Register Spring DispatcherServlet -->  
+    <servlet>
+        <servlet-name>spring-dispatcher</servlet-name>            
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    </servlet>
+    <!-- #2-b Create mapping for DispatcherServlet --> 
+    <servlet-mapping>
+        <servlet-name>spring-dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <!-- #2-c Create mapping for DispatcherServlet -->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.eot</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.svg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.ttf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.woff</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.woff2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.png</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.gif</url-pattern>
+    </servlet-mapping>
+<!-- #2 Servlet mapping end -->
+
+<!-- #3 Spring context file entries start -->        
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /WEB-INF/spring-dispatcher-servlet.xml
+            classpath:spring-persistence.xml
+        </param-value>
+    </context-param>
+<!-- #3 Spring context file entries end -->
+    
+<!-- #4 Tell Tomcat to load Spring context when web app is loaded start -->
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+<!-- #4 Tell Tomcat to load Spring context when web app is loaded end -->  
+</web-app>
+
