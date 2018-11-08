@@ -1,6 +1,6 @@
-# Portfolio
+# Java Projects
 
-My portfolio contains web applications I built during and after my time at The Software Guild. These applications where developed to demonstrate proficiency with the following technologies, concepts and languages:
+My Java Projects repo contains web applications I built during and after my time at The Software Guild. These applications where developed to demonstrate proficiency with the following technologies, concepts and languages:
 
 Java web application development, Tiered Application Design (N-tier), Spring MVC, Dependency Injection, Tomcat, Spring JDBC, MySQL, SQL Query Writing, HTML, CSS, Bootstrap, XML, JavaScript, JQuery, AJAX, JSON, Servlets, JSP, JSTL, JUnit Test-Driven Development (TDD), RESTful Web Services, Spring Security, Agile Software Development Life Cycle
 
